@@ -125,7 +125,7 @@
     <comp lib="0" loc="(770,890)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="south"/>
-      <a name="label" val="reading"/>
+      <a name="label" val="wr_mode"/>
       <a name="type" val="output"/>
     </comp>
     <comp lib="0" loc="(820,860)" name="Pin">
@@ -643,7 +643,7 @@
     <comp lib="0" loc="(1080,1260)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="north"/>
-      <a name="label" val="reading"/>
+      <a name="label" val="wr_mode"/>
       <a name="type" val="output"/>
     </comp>
     <comp lib="0" loc="(1110,1330)" name="Pin">
@@ -691,41 +691,66 @@
     <a name="circuit" val="SRAM_controller"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
-    <comp lib="0" loc="(1050,640)" name="Pin">
+    <comp lib="0" loc="(1040,590)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="a_CE"/>
       <a name="type" val="output"/>
     </comp>
-    <comp lib="0" loc="(1070,750)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="b_CE"/>
-      <a name="type" val="output"/>
-    </comp>
-    <comp lib="0" loc="(1080,980)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="b_WE"/>
-      <a name="type" val="output"/>
-    </comp>
-    <comp lib="0" loc="(1090,880)" name="Pin">
+    <comp lib="0" loc="(1040,680)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="a_WE"/>
       <a name="type" val="output"/>
     </comp>
-    <comp lib="0" loc="(540,580)" name="Pin">
+    <comp lib="0" loc="(1040,740)" name="Pin">
       <a name="appearance" val="NewPins"/>
-      <a name="label" val="a_bit_1"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="b_CE"/>
+      <a name="type" val="output"/>
     </comp>
-    <comp lib="0" loc="(540,660)" name="Pin">
+    <comp lib="0" loc="(1040,800)" name="Pin">
       <a name="appearance" val="NewPins"/>
-      <a name="label" val="b_bit_1"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="b_WE"/>
+      <a name="type" val="output"/>
     </comp>
-    <comp lib="0" loc="(540,720)" name="Pin">
+    <comp lib="0" loc="(530,600)" name="Pin">
       <a name="appearance" val="NewPins"/>
-      <a name="label" val="reading"/>
+      <a name="label" val="wbit_0"/>
     </comp>
+    <comp lib="0" loc="(530,660)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="wr_mode"/>
+    </comp>
+    <comp lib="1" loc="(630,700)" name="NOT Gate"/>
+    <comp lib="1" loc="(630,780)" name="NOT Gate"/>
+    <comp lib="1" loc="(840,680)" name="AND Gate"/>
+    <comp lib="1" loc="(840,740)" name="OR Gate"/>
+    <comp lib="1" loc="(840,800)" name="AND Gate"/>
+    <comp lib="1" loc="(850,590)" name="NAND Gate"/>
+    <wire from="(530,570)" to="(530,600)"/>
+    <wire from="(530,570)" to="(580,570)"/>
+    <wire from="(530,660)" to="(560,660)"/>
+    <wire from="(560,610)" to="(560,660)"/>
+    <wire from="(560,610)" to="(790,610)"/>
+    <wire from="(560,660)" to="(560,760)"/>
+    <wire from="(560,660)" to="(790,660)"/>
+    <wire from="(560,760)" to="(560,780)"/>
+    <wire from="(560,760)" to="(790,760)"/>
+    <wire from="(560,780)" to="(600,780)"/>
+    <wire from="(580,570)" to="(580,700)"/>
+    <wire from="(580,570)" to="(790,570)"/>
+    <wire from="(580,700)" to="(580,720)"/>
+    <wire from="(580,700)" to="(600,700)"/>
+    <wire from="(580,720)" to="(580,820)"/>
+    <wire from="(580,720)" to="(790,720)"/>
+    <wire from="(580,820)" to="(790,820)"/>
+    <wire from="(630,700)" to="(790,700)"/>
+    <wire from="(630,780)" to="(790,780)"/>
+    <wire from="(840,680)" to="(1040,680)"/>
+    <wire from="(840,740)" to="(1040,740)"/>
+    <wire from="(840,800)" to="(1040,800)"/>
+    <wire from="(850,590)" to="(1040,590)"/>
   </circuit>
 </project>
