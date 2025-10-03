@@ -62,6 +62,8 @@
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
+    <comp loc="(430,510)" name="clk_gen"/>
+    <comp loc="(680,460)" name="SRAM_controller"/>
   </circuit>
   <circuit name="h_clk_gen">
     <a name="appearance" val="logisim_evolution"/>
@@ -97,6 +99,7 @@
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="j_addr"/>
+      <a name="radix" val="10unsigned"/>
       <a name="type" val="output"/>
       <a name="width" val="8"/>
     </comp>
@@ -752,5 +755,254 @@
     <wire from="(840,740)" to="(1040,740)"/>
     <wire from="(840,800)" to="(1040,800)"/>
     <wire from="(850,590)" to="(1040,590)"/>
+  </circuit>
+  <circuit name="bus_mux">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="bus_mux"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(1020,330)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="RAM_a_CE"/>
+      <a name="type" val="output"/>
+    </comp>
+    <comp lib="0" loc="(1020,360)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="RAM_a_WE"/>
+      <a name="type" val="output"/>
+    </comp>
+    <comp lib="0" loc="(1020,390)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="RAM_b_CE"/>
+      <a name="type" val="output"/>
+    </comp>
+    <comp lib="0" loc="(1020,420)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="RAM_b_WE"/>
+      <a name="type" val="output"/>
+    </comp>
+    <comp lib="0" loc="(320,610)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="w_h_addr"/>
+      <a name="radix" val="10unsigned"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(320,640)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="w_v_addr"/>
+      <a name="radix" val="10unsigned"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(350,490)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="r_h_addr"/>
+      <a name="radix" val="10unsigned"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(350,520)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="r_v_addr"/>
+      <a name="radix" val="10unsigned"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(410,750)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="w_data"/>
+      <a name="radix" val="10unsigned"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(580,600)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="label" val="wbit_0"/>
+    </comp>
+    <comp lib="0" loc="(710,710)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="RAM_a_data_in"/>
+      <a name="radix" val="10unsigned"/>
+      <a name="type" val="output"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(710,750)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="RAM_b_data_in"/>
+      <a name="radix" val="10unsigned"/>
+      <a name="type" val="output"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(850,340)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="wbit_0"/>
+    </comp>
+    <comp lib="0" loc="(960,520)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="RAM_a_addr"/>
+      <a name="radix" val="16"/>
+      <a name="type" val="output"/>
+      <a name="width" val="15"/>
+    </comp>
+    <comp lib="0" loc="(960,570)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="RAM_b_addr"/>
+      <a name="radix" val="16"/>
+      <a name="type" val="output"/>
+      <a name="width" val="15"/>
+    </comp>
+    <comp lib="1" loc="(620,700)" name="NOT Gate">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="1" loc="(630,750)" name="Controlled Buffer">
+      <a name="control" val="left"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="1" loc="(670,710)" name="Controlled Buffer">
+      <a name="control" val="left"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="2" loc="(840,570)" name="Multiplexer">
+      <a name="selloc" val="tr"/>
+      <a name="width" val="15"/>
+    </comp>
+    <comp lib="2" loc="(870,520)" name="Multiplexer">
+      <a name="selloc" val="tr"/>
+      <a name="width" val="15"/>
+    </comp>
+    <comp loc="(550,610)" name="addr_combiner"/>
+    <comp loc="(600,490)" name="addr_combiner"/>
+    <comp loc="(980,360)" name="SRAM_controller"/>
+    <wire from="(1000,360)" to="(1000,370)"/>
+    <wire from="(1000,360)" to="(1020,360)"/>
+    <wire from="(1000,380)" to="(1000,390)"/>
+    <wire from="(1000,390)" to="(1020,390)"/>
+    <wire from="(320,610)" to="(330,610)"/>
+    <wire from="(320,640)" to="(330,640)"/>
+    <wire from="(330,630)" to="(330,640)"/>
+    <wire from="(350,490)" to="(380,490)"/>
+    <wire from="(350,520)" to="(380,520)"/>
+    <wire from="(380,510)" to="(380,520)"/>
+    <wire from="(410,750)" to="(550,750)"/>
+    <wire from="(550,610)" to="(580,610)"/>
+    <wire from="(550,630)" to="(690,630)"/>
+    <wire from="(550,710)" to="(550,750)"/>
+    <wire from="(550,710)" to="(650,710)"/>
+    <wire from="(550,750)" to="(610,750)"/>
+    <wire from="(580,600)" to="(580,610)"/>
+    <wire from="(600,490)" to="(620,490)"/>
+    <wire from="(600,510)" to="(750,510)"/>
+    <wire from="(620,370)" to="(620,490)"/>
+    <wire from="(620,370)" to="(850,370)"/>
+    <wire from="(620,490)" to="(620,660)"/>
+    <wire from="(620,660)" to="(620,670)"/>
+    <wire from="(620,660)" to="(660,660)"/>
+    <wire from="(620,700)" to="(620,740)"/>
+    <wire from="(630,750)" to="(710,750)"/>
+    <wire from="(660,660)" to="(660,700)"/>
+    <wire from="(670,710)" to="(710,710)"/>
+    <wire from="(690,530)" to="(690,630)"/>
+    <wire from="(690,530)" to="(780,530)"/>
+    <wire from="(750,510)" to="(750,580)"/>
+    <wire from="(750,510)" to="(840,510)"/>
+    <wire from="(750,580)" to="(810,580)"/>
+    <wire from="(780,530)" to="(780,560)"/>
+    <wire from="(780,530)" to="(840,530)"/>
+    <wire from="(780,560)" to="(810,560)"/>
+    <wire from="(820,480)" to="(820,550)"/>
+    <wire from="(820,480)" to="(850,480)"/>
+    <wire from="(840,570)" to="(960,570)"/>
+    <wire from="(850,340)" to="(860,340)"/>
+    <wire from="(850,370)" to="(850,480)"/>
+    <wire from="(850,370)" to="(880,370)"/>
+    <wire from="(850,480)" to="(850,500)"/>
+    <wire from="(860,340)" to="(860,360)"/>
+    <wire from="(860,360)" to="(880,360)"/>
+    <wire from="(870,520)" to="(960,520)"/>
+    <wire from="(980,360)" to="(990,360)"/>
+    <wire from="(980,370)" to="(1000,370)"/>
+    <wire from="(980,380)" to="(1000,380)"/>
+    <wire from="(980,390)" to="(990,390)"/>
+    <wire from="(990,330)" to="(1020,330)"/>
+    <wire from="(990,330)" to="(990,360)"/>
+    <wire from="(990,390)" to="(990,420)"/>
+    <wire from="(990,420)" to="(1020,420)"/>
+  </circuit>
+  <circuit name="SRAM_module">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="SRAM_module"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="4" loc="(750,400)" name="RAM">
+      <a name="addrWidth" val="15"/>
+      <a name="appearance" val="logisim_evolution"/>
+      <a name="databus" val="bidir"/>
+    </comp>
+    <comp lib="4" loc="(750,670)" name="RAM">
+      <a name="addrWidth" val="15"/>
+      <a name="appearance" val="logisim_evolution"/>
+      <a name="databus" val="bidir"/>
+    </comp>
+    <comp loc="(600,330)" name="bus_mux"/>
+    <wire from="(600,410)" to="(750,410)"/>
+    <wire from="(600,430)" to="(720,430)"/>
+    <wire from="(720,430)" to="(720,680)"/>
+    <wire from="(720,680)" to="(750,680)"/>
+  </circuit>
+  <circuit name="addr_combiner">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="addr_combiner"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(400,350)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="v_addr"/>
+      <a name="radix" val="10unsigned"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(400,430)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="h_addr"/>
+      <a name="radix" val="10unsigned"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(470,350)" name="Splitter">
+      <a name="appear" val="center"/>
+      <a name="fanout" val="8"/>
+      <a name="incoming" val="8"/>
+    </comp>
+    <comp lib="0" loc="(470,430)" name="Splitter">
+      <a name="appear" val="center"/>
+      <a name="fanout" val="8"/>
+      <a name="incoming" val="8"/>
+    </comp>
+    <comp lib="0" loc="(510,390)" name="Splitter">
+      <a name="appear" val="center"/>
+      <a name="facing" val="west"/>
+      <a name="fanout" val="15"/>
+      <a name="incoming" val="15"/>
+    </comp>
+    <comp lib="0" loc="(640,310)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="bank_sel"/>
+      <a name="type" val="output"/>
+    </comp>
+    <comp lib="0" loc="(640,390)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="addr"/>
+      <a name="radix" val="10unsigned"/>
+      <a name="type" val="output"/>
+      <a name="width" val="15"/>
+    </comp>
+    <wire from="(400,350)" to="(470,350)"/>
+    <wire from="(400,430)" to="(470,430)"/>
+    <wire from="(490,310)" to="(640,310)"/>
+    <wire from="(510,390)" to="(640,390)"/>
   </circuit>
 </project>
