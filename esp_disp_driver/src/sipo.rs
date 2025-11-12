@@ -10,7 +10,9 @@ struct PinCfg<'a> {
     pub ser:      AnyPin<'a>,         // Serial Data Input
 }
 
-struct Sipo<'a> {
+// SIPO chain with const-generic width (N bytes = 8*N bits).
+// N = 1 for a single 74HC595; N = 2 for two chips daisy-chained (1 -> 16), etc.
+struct Sipo<'a, const N: usize> {
     // Optional internal control lines: if None, expect an external shared control
     srclr_al_out: Option<Output<'a>>,
     rclk_out:     Option<Output<'a>>,
@@ -19,7 +21,7 @@ struct Sipo<'a> {
     ser_out:      Output<'a>,
 }
 
-impl<'a> Sipo<'a> {
+impl<'a, const N: usize> Sipo<'a, N> {
     pub fn new(pin_cfg: PinCfg<'a>) -> Self {
         let cfg = OutputConfig::default();
         let mut s = Self {
@@ -33,6 +35,13 @@ impl<'a> Sipo<'a> {
         s.clear();
         s
     }
+
+    /// Total width in bits (for info/validation).
+    #[inline]
+    pub const fn width_bits(&self) -> usize { 8 * N }
+
+    #[inline]
+    pub const fn width_bytes(&self) -> usize { N }
 
     pub fn latch(&mut self) {
         match &mut self.rclk_out {
@@ -63,6 +72,7 @@ impl<'a> Sipo<'a> {
         }
     }
 
+    /// Shift one byte MSB-first into the chain. For N>1, this sends only 1/ N of a full frame.
     pub fn shift_byte(&mut self, byte: u8) {
         for i in 0..8 {
             let bit = (byte >> (7 - i)) & 0x01;
@@ -76,8 +86,61 @@ impl<'a> Sipo<'a> {
         }
     }
 
+    /// Shift a sequence of bytes (MSB-first per byte). Length can be any number;
+    /// for a full update of an N-byte chain, pass exactly N bytes (far-end first).
+    pub fn shift_byte_seq(&mut self, bytes: &[u8]) {
+        for &b in bytes {
+            self.shift_byte(b);
+        }
+    }
+
+    /// Convenience: shift exactly N bytes (full chain width). By convention,
+    /// send the far-end byte first, near-end last, then latch.
+    pub fn shift_exact(&mut self, frame: &[u8; N]) {
+        self.shift_byte_seq(frame);
+    }
+
+    pub fn write_byte(&mut self, byte: u8) {
+        self.shift_byte(byte);
+        self.latch();
+    }
+
+    pub fn write_byte_seq(&mut self, bytes: &[u8]) {
+        self.shift_byte_seq(bytes);
+        self.latch();
+    }
+
+    /// Write exactly one full frame (N bytes) then latch (simultaneous update).
+    pub fn write_exact(&mut self, frame: &[u8; N]) {
+        self.shift_exact(frame);
+        self.latch();
+    }
+
     pub fn latch_with(&mut self, shared_rclk: &mut Output<'a>) {
         shared_rclk.set_high();
         shared_rclk.set_low();
     }
+}
+
+
+
+pub trait ShiftDev {
+    /// Shift a sequence of bytes (MSB-first per byte), without latching.
+    fn shift_bytes(&mut self, bytes: &[u8]);
+
+    /// Latch the shifted bits into the parallel output register.
+    fn latch(&mut self);
+
+    /// Clear the shift register (not the outputs); caller may latch zeros afterwards.
+    fn clear(&mut self);
+}
+impl<'a, const N: usize> ShiftDev for Sipo<'a, N> {
+    #[inline]
+    fn shift_bytes(&mut self, bytes: &[u8]) { self.shift_byte_seq(bytes) }
+
+    #[inline]
+    fn latch(&mut self) { Sipo::latch(self) } 
+
+    #[inline]
+    fn clear(&mut self) { Sipo::clear(self) }
 }
