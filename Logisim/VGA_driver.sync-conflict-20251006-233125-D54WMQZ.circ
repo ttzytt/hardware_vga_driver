@@ -173,14 +173,12 @@
     </comp>
     <comp lib="4" loc="(1350,990)" name="J-K Flip-Flop">
       <a name="appearance" val="logisim_evolution"/>
-      <a name="trigger" val="falling"/>
     </comp>
     <comp lib="4" loc="(1430,970)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
     </comp>
     <comp lib="4" loc="(1610,990)" name="J-K Flip-Flop">
       <a name="appearance" val="logisim_evolution"/>
-      <a name="trigger" val="falling"/>
     </comp>
     <comp lib="4" loc="(470,910)" name="Counter">
       <a name="appearance" val="logisim_evolution"/>
@@ -444,7 +442,7 @@
     <comp lib="1" loc="(1390,500)" name="AND Gate">
       <a name="facing" val="north"/>
     </comp>
-    <comp lib="1" loc="(1480,510)" name="AND Gate">
+    <comp lib="1" loc="(1480,530)" name="AND Gate">
       <a name="facing" val="north"/>
       <a name="inputs" val="10"/>
     </comp>
@@ -546,28 +544,27 @@
     <wire from="(1390,500)" to="(2180,500)"/>
     <wire from="(1410,550)" to="(1410,720)"/>
     <wire from="(1410,720)" to="(1430,720)"/>
-    <wire from="(1430,560)" to="(1430,720)"/>
+    <wire from="(1430,580)" to="(1430,720)"/>
     <wire from="(1430,720)" to="(1740,720)"/>
-    <wire from="(1440,560)" to="(1440,740)"/>
+    <wire from="(1440,580)" to="(1440,740)"/>
     <wire from="(1440,740)" to="(1740,740)"/>
-    <wire from="(1450,560)" to="(1450,780)"/>
+    <wire from="(1450,580)" to="(1450,780)"/>
     <wire from="(1450,780)" to="(1560,780)"/>
-    <wire from="(1460,560)" to="(1460,810)"/>
+    <wire from="(1460,580)" to="(1460,810)"/>
     <wire from="(1460,810)" to="(1740,810)"/>
-    <wire from="(1470,560)" to="(1470,840)"/>
+    <wire from="(1470,580)" to="(1470,840)"/>
     <wire from="(1470,840)" to="(1580,840)"/>
-    <wire from="(1480,440)" to="(1480,510)"/>
-    <wire from="(1480,510)" to="(1480,530)"/>
+    <wire from="(1480,440)" to="(1480,530)"/>
     <wire from="(1480,530)" to="(2220,530)"/>
-    <wire from="(1490,560)" to="(1490,860)"/>
+    <wire from="(1490,580)" to="(1490,860)"/>
     <wire from="(1490,860)" to="(1740,860)"/>
-    <wire from="(1500,560)" to="(1500,900)"/>
+    <wire from="(1500,580)" to="(1500,900)"/>
     <wire from="(1500,900)" to="(1610,900)"/>
-    <wire from="(1510,560)" to="(1510,920)"/>
+    <wire from="(1510,580)" to="(1510,920)"/>
     <wire from="(1510,920)" to="(1620,920)"/>
-    <wire from="(1520,560)" to="(1520,950)"/>
+    <wire from="(1520,580)" to="(1520,950)"/>
     <wire from="(1520,950)" to="(1630,950)"/>
-    <wire from="(1530,560)" to="(1530,990)"/>
+    <wire from="(1530,580)" to="(1530,990)"/>
     <wire from="(1530,990)" to="(1640,990)"/>
     <wire from="(1560,610)" to="(1560,780)"/>
     <wire from="(1560,780)" to="(1740,780)"/>
@@ -982,15 +979,9 @@
       <a name="control" val="left"/>
       <a name="width" val="8"/>
     </comp>
-    <comp lib="1" loc="(540,200)" name="OR Gate">
-      <a name="facing" val="north"/>
-    </comp>
     <comp lib="2" loc="(1310,760)" name="Multiplexer">
       <a name="selloc" val="tr"/>
       <a name="width" val="8"/>
-    </comp>
-    <comp lib="4" loc="(610,130)" name="D Flip-Flop">
-      <a name="appearance" val="logisim_evolution"/>
     </comp>
     <comp lib="4" loc="(750,400)" name="RAM">
       <a name="addrWidth" val="15"/>
@@ -1036,22 +1027,16 @@
     <wire from="(1290,680)" to="(1290,740)"/>
     <wire from="(1310,760)" to="(1340,760)"/>
     <wire from="(490,330)" to="(650,330)"/>
-    <wire from="(490,350)" to="(520,350)"/>
+    <wire from="(490,350)" to="(670,350)"/>
     <wire from="(490,370)" to="(710,370)"/>
-    <wire from="(490,390)" to="(560,390)"/>
+    <wire from="(490,390)" to="(730,390)"/>
     <wire from="(490,410)" to="(750,410)"/>
     <wire from="(490,430)" to="(690,430)"/>
     <wire from="(490,450)" to="(610,450)"/>
     <wire from="(490,470)" to="(630,470)"/>
     <wire from="(490,490)" to="(630,490)"/>
-    <wire from="(520,250)" to="(520,350)"/>
-    <wire from="(520,350)" to="(670,350)"/>
-    <wire from="(540,200)" to="(630,200)"/>
-    <wire from="(560,250)" to="(560,390)"/>
-    <wire from="(560,390)" to="(730,390)"/>
     <wire from="(610,450)" to="(610,680)"/>
     <wire from="(610,680)" to="(1290,680)"/>
-    <wire from="(630,190)" to="(630,200)"/>
     <wire from="(630,310)" to="(1180,310)"/>
     <wire from="(630,310)" to="(630,470)"/>
     <wire from="(630,490)" to="(630,660)"/>
