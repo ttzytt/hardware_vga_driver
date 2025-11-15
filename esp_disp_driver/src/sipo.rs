@@ -2,7 +2,7 @@ use defmt::warn;
 use esp_hal::{self as hal, gpio, peripherals::Peripherals};
 use hal::gpio::{AnyPin, Io, Level, Output, OutputConfig, OutputPin};
 
-struct PinCfg<'a> {
+pub struct PinCfg<'a> {
     // Pin configuration for SNx4HC595 Shift Register
     pub srclr_al: Option<AnyPin<'a>>, // Shift Register Clear (active low)
     pub rclk:     Option<AnyPin<'a>>, // Register Clock (latch)
@@ -12,7 +12,7 @@ struct PinCfg<'a> {
 
 // SIPO chain with const-generic width (N bytes = 8*N bits).
 // N = 1 for a single 74HC595; N = 2 for two chips daisy-chained (1 -> 16), etc.
-struct Sipo<'a, const N: usize> {
+pub struct Sipo<'a, const N: usize> {
     // Optional internal control lines: if None, expect an external shared control
     srclr_al_out: Option<Output<'a>>,
     rclk_out:     Option<Output<'a>>,
@@ -23,7 +23,9 @@ struct Sipo<'a, const N: usize> {
 
 impl<'a, const N: usize> Sipo<'a, N> {
     pub fn new(pin_cfg: PinCfg<'a>) -> Self {
-        let cfg = OutputConfig::default();
+        let cfg = OutputConfig::default()
+            .with_drive_mode(gpio::DriveMode::OpenDrain)
+            .with_pull(gpio::Pull::Up);
         let mut s = Self {
             // If present, create internal outputs; otherwise leave as None for external control
             srclr_al_out: pin_cfg.srclr_al.map(|p| Output::new(p, Level::High, cfg)),
@@ -124,9 +126,10 @@ impl<'a, const N: usize> Sipo<'a, N> {
 
 
 
-pub trait ShiftDev {
+pub trait ShiftDevN<const N: usize> {
     /// Shift a sequence of bytes (MSB-first per byte), without latching.
     fn shift_bytes(&mut self, bytes: &[u8]);
+    fn shift_exact(&mut self, frame: &[u8; N]);
 
     /// Latch the shifted bits into the parallel output register.
     fn latch(&mut self);
@@ -134,13 +137,69 @@ pub trait ShiftDev {
     /// Clear the shift register (not the outputs); caller may latch zeros afterwards.
     fn clear(&mut self);
 }
-impl<'a, const N: usize> ShiftDev for Sipo<'a, N> {
-    #[inline]
-    fn shift_bytes(&mut self, bytes: &[u8]) { self.shift_byte_seq(bytes) }
 
-    #[inline]
-    fn latch(&mut self) { Sipo::latch(self) } 
 
-    #[inline]
-    fn clear(&mut self) { Sipo::clear(self) }
+impl<'a, const N: usize> ShiftDevN<N> for Sipo<'a, N> {
+    #[inline] fn shift_exact(&mut self, frame: &[u8; N]) { self.shift_exact(frame); }
+    #[inline] fn latch(&mut self) { self.latch(); }
+    #[inline] fn clear(&mut self) { self.clear(); }
+    #[inline] fn shift_bytes(&mut self, bytes: &[u8]) { self.shift_byte_seq(bytes) }
+}
+
+
+/* ---------- Parallel composition enforcing same N at compile time ---------- */
+
+/// A parallel bank of ShiftDevN devices (e.g., multiple SIPO chains),
+/// all with the same BYTES = N. Optionally owns a shared RCLK to latch all at once.
+pub struct ParallelBank<'a, D, const LANES: usize, const N: usize>
+where
+    D: ShiftDevN<N>,
+{
+    lanes: [D; LANES],
+    shared_rclk: Option<Output<'a>>, // If Some: one pulse latches all lanes simultaneously
+}
+
+impl<'a, D, const LANES: usize, const N: usize> ParallelBank<'a, D, LANES, N>
+where
+    D: ShiftDevN<N>,
+{
+    /// Create a bank. If `shared_rclk` is Some, wire all lane RCLKs to that pin
+    /// and do NOT give each lane its own internal RCLK (set Sipo.rclk = None).
+    pub fn new(lanes: [D; LANES], shared_rclk: Option<Output<'a>>) -> Self {
+        Self { lanes, shared_rclk }
+    }
+
+    /// Shift exactly one full frame per lane (far-end first), no latch.
+    pub fn shift_exact_per_lane(&mut self, frames: [[u8; N]; LANES]) {
+        for (lane, frame) in self.lanes.iter_mut().zip(frames) {
+            lane.shift_exact(&frame);
+        }
+    }
+
+    /// Latch all lanes: if a shared RCLK exists, pulse it once; else call lane.latch().
+    pub fn latch_all(&mut self) {
+        if let Some(r) = &mut self.shared_rclk {
+            r.set_high();
+            r.set_low();
+        } else {
+            for lane in &mut self.lanes {
+                lane.latch();
+            }
+        }
+    }
+
+    /// Clear all lanes (shift-registers only). Caller may latch zeros afterwards.
+    pub fn clear_all(&mut self) {
+        for lane in &mut self.lanes {
+            lane.clear();
+        }
+    }
+
+    /// Mutably access a lane if needed.
+    pub fn lane_mut(&mut self, idx: usize) -> Option<&mut D> {
+        self.lanes.get_mut(idx)
+    }
+
+    /// Consume and return lanes.
+    pub fn into_inner(self) -> [D; LANES] { self.lanes }
 }

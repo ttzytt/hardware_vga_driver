@@ -7,17 +7,16 @@
 )]
 
 use bt_hci::controller::ExternalController;
-use defmt::info;
+use defmt::{info, println};
 use embassy_executor::Spawner;
 use embassy_time::{Duration, Timer};
-use esp_hal::gpio::OutputConfig;
-use esp_hal::{clock::CpuClock, gpio::Output};
+use esp_hal::{clock::CpuClock, gpio::Output, gpio};
 use esp_hal::timer::timg::TimerGroup;
+use esp_hal::gpio::OutputConfig;
 use esp_radio::ble::controller::BleConnector;
+use panic_rtt_target as _;
 use trouble_host::prelude::*;
-use {esp_backtrace as _, esp_println as _};
-use esp_disp_driver::cfg;
-
+use esp_disp_driver::sipo;
 extern crate alloc;
 
 const CONNECTIONS_MAX: usize = 1;
@@ -30,12 +29,12 @@ esp_bootloader_esp_idf::esp_app_desc!();
 #[esp_rtos::main]
 async fn main(spawner: Spawner) -> ! {
     // generator version: 1.0.1
-    
+
+    rtt_target::rtt_init_defmt!();
+
     let config = esp_hal::Config::default().with_cpu_clock(CpuClock::max());
-    
     let peripherals = esp_hal::init(config);
-    // let mut led = Output::new(peripherals.GPIO0, Level::Low, OutputConfig::default());
-    
+
     esp_alloc::heap_allocator!(#[esp_hal::ram(reclaimed)] size: 73744);
     // COEX needs more RAM - so we've added some more
     esp_alloc::heap_allocator!(size: 64 * 1024);
@@ -59,9 +58,30 @@ async fn main(spawner: Spawner) -> ! {
     // TODO: Spawn some tasks
     let _ = spawner;
 
+    let write_num = 0b10101010u8;
+    let sipo_pin_cfg = sipo::PinCfg {
+        srclr_al: Some(peripherals.GPIO38.into()),
+        rclk:     Some(peripherals.GPIO37.into()),
+        srclk:    peripherals.GPIO36.into(),
+        ser:      peripherals.GPIO35.into(),
+    };
+    let mut sipo: sipo::Sipo<1> = sipo::Sipo::new(sipo_pin_cfg);
+    let gpio_config = OutputConfig::default();
+        // .with_drive_mode(gpio::DriveMode::OpenDrain) 
+        // .with_pull(gpio::Pull::None);
+    let mut gpio0_out = Output::new(peripherals.GPIO0, esp_hal::gpio::Level::Low, gpio_config);
+
     loop {
-        info!("Hello world!");
-        Timer::after(Duration::from_secs(1)).await;
+        println!("Shifting out byte {:08b}", write_num);
+        Timer::after(Duration::from_secs(2)).await;
+
+        sipo.shift_byte(write_num);
+        sipo.latch();
+        println!("toggle GPIO 0");
+        gpio0_out.toggle();
+        println!("current GPIO 0 level: {:?}", gpio0_out.is_set_high());
+        // Timer::after(Duration::from_secs(2)).await;
+
     }
 
     // for inspiration have a look at the examples at https://github.com/esp-rs/esp-hal/tree/esp-hal-v1.0.0/examples/src/bin
