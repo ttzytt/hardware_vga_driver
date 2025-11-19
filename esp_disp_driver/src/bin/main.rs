@@ -58,7 +58,7 @@ async fn main(spawner: Spawner) -> ! {
     // TODO: Spawn some tasks
     let _ = spawner;
 
-    let write_num = 0b10101010u8;
+    let write_num = 0b11110000u8;
     let sipo_pin_cfg = sipo::PinCfg {
         srclr_al: Some(peripherals.GPIO38.into()),
         rclk:     Some(peripherals.GPIO37.into()),
