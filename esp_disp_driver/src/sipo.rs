@@ -47,8 +47,8 @@ impl<'a> ClearLine<'a> {
 
 /// Mandatory shared-control group: has both a shared RCLK and a shared SRCLR.
 pub struct LatchGroup<'a> {
-    latch: LatchLine<'a>,
-    clear: ClearLine<'a>,
+    pub latch: LatchLine<'a>,
+    pub clear: ClearLine<'a>,
 }
 impl<'a> LatchGroup<'a> {
     pub fn new(latch: LatchLine<'a>, clear: ClearLine<'a>) -> Self { Self { latch, clear } }
@@ -66,10 +66,6 @@ impl<'a> LatchGroup<'a> {
 
     /// Emit one shared clear pulse for the whole group.
     #[inline] pub fn clear_all(&mut self) { self.clear.pulse(); }
-
-    /// Expose the underlying lines if you need to pass them down.
-    #[inline] pub fn latch_line(&mut self) -> &mut LatchLine<'a> { &mut self.latch }
-    #[inline] pub fn clear_line(&mut self) -> &mut ClearLine<'a> { &mut self.clear }
 }
 
 /* --------------------------- Data-plane: SIPO chain --------------------------- */
@@ -246,10 +242,10 @@ where
     }
 
     /// External mode: use a shared LatchGroup (one pulse for all banks).
-    #[inline] pub fn latch_all_via<'a>(&mut self, g: &mut LatchGroup<'a>) { g.latch_line().pulse(); }
+    #[inline] pub fn latch_all_via<'a>(&mut self, g: &mut LatchGroup<'a>) { g.latch.pulse(); }
 
     /// External mode: use a shared ClearLine (one pulse for all banks).
-    #[inline] pub fn clear_all_via<'a>(&mut self, g: &mut LatchGroup<'a>) { g.clear_line().pulse(); }
+    #[inline] pub fn clear_all_via<'a>(&mut self, g: &mut LatchGroup<'a>) { g.clear.pulse(); }
 
     pub fn lane_mut(&mut self, idx: usize) -> Option<&mut D> { self.lanes.get_mut(idx) }
 

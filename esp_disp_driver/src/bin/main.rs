@@ -16,7 +16,7 @@ use esp_hal::gpio::OutputConfig;
 use esp_radio::ble::controller::BleConnector;
 use panic_rtt_target as _;
 use trouble_host::prelude::*;
-use esp_disp_driver::sipo;
+use esp_disp_driver::{sipo, demo};
 extern crate alloc;
 
 const CONNECTIONS_MAX: usize = 1;
@@ -33,7 +33,7 @@ async fn main(spawner: Spawner) -> ! {
     rtt_target::rtt_init_defmt!();
 
     let config = esp_hal::Config::default().with_cpu_clock(CpuClock::max());
-    let peripherals = esp_hal::init(config);
+    let mut peripherals = esp_hal::init(config);
 
     esp_alloc::heap_allocator!(#[esp_hal::ram(reclaimed)] size: 73744);
     // COEX needs more RAM - so we've added some more
@@ -49,7 +49,7 @@ async fn main(spawner: Spawner) -> ! {
         esp_radio::wifi::new(&radio_init, peripherals.WIFI, Default::default())
             .expect("Failed to initialize Wi-Fi controller");
     // find more examples https://github.com/embassy-rs/trouble/tree/main/examples/esp32
-    let transport = BleConnector::new(&radio_init, peripherals.BT, Default::default()).unwrap();
+    let transport = BleConnector::new(&radio_init, &mut peripherals.BT, Default::default()).unwrap();
     let ble_controller = ExternalController::<_, 20>::new(transport);
     let mut resources: HostResources<DefaultPacketPool, CONNECTIONS_MAX, L2CAP_CHANNELS_MAX> =
         HostResources::new();
@@ -58,30 +58,12 @@ async fn main(spawner: Spawner) -> ! {
     // TODO: Spawn some tasks
     let _ = spawner;
 
-    let write_num = 0b11110000u8;
-    let sipo_pin_cfg = sipo::PinCfg {
-        srclr_al: Some(peripherals.GPIO38.into()),
-        rclk:     Some(peripherals.GPIO37.into()),
-        srclk:    peripherals.GPIO36.into(),
-        ser:      peripherals.GPIO35.into(),
-    };
-    let mut sipo: sipo::Sipo<1> = sipo::Sipo::new(sipo_pin_cfg);
-    let gpio_config = OutputConfig::default();
-        // .with_drive_mode(gpio::DriveMode::OpenDrain) 
-        // .with_pull(gpio::Pull::None);
-    let mut gpio0_out = Output::new(peripherals.GPIO0, esp_hal::gpio::Level::Low, gpio_config);
+    let mut bw_writer = demo::pure_color::construct_bw_pixel_writer_def_pinout(peripherals);
 
     loop {
-        println!("Shifting out byte {:08b}", write_num);
-        Timer::after(Duration::from_secs(2)).await;
-
-        sipo.shift_byte(write_num);
-        sipo.latch();
-        println!("toggle GPIO 0");
-        gpio0_out.toggle();
-        println!("current GPIO 0 level: {:?}", gpio0_out.is_set_high());
-        // Timer::after(Duration::from_secs(2)).await;
-
+        for b in 0u8..255 {
+            demo::pure_color::display_pure_color(b, &mut bw_writer);
+        }
     }
 
     // for inspiration have a look at the examples at https://github.com/esp-rs/esp-hal/tree/esp-hal-v1.0.0/examples/src/bin
