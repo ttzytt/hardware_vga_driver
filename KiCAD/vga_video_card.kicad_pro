@@ -633,6 +633,46 @@
     [
       "318d78f1-f69a-43bc-862b-642862639a11",
       "vertical_counter"
+    ],
+    [
+      "4528f6b5-ae30-4c98-9cf1-00b4b26f8c16",
+      "RAM_state_controller"
+    ],
+    [
+      "9d9429b1-c4f4-4d06-b7d7-8f5f8e69e70c",
+      "RAM_bus_mux"
+    ],
+    [
+      "a295050b-d209-4efc-8327-c0e97d5127bf",
+      "RAM_module"
+    ],
+    [
+      "679cd2f7-9131-4465-aded-bd2aa8058862",
+      "ext_graphics_source"
+    ],
+    [
+      "848ba748-10c3-42e0-a7e6-75cc013e6620",
+      "8bit_2:1_analog_MUX"
+    ],
+    [
+      "e9943e04-24d6-4469-9ff0-37b964b5055b",
+      "8bit_2:1_MUX"
+    ],
+    [
+      "d31e17da-7ff7-4212-89ce-c5cc014dbb38",
+      "15bit_2:1_MUX1"
+    ],
+    [
+      "f5c35838-e9fb-4bf9-94a1-fd6c8f9f3f0a",
+      "15bit_2:1_MUX"
+    ],
+    [
+      "c190b4fe-1b6d-489c-a610-ff4a58731113",
+      "addr_combiner"
+    ],
+    [
+      "dd8eabc5-d0f0-4d98-bb07-70a977c953cb",
+      "addr_combiner1"
     ]
   ],
   "text_variables": {}
