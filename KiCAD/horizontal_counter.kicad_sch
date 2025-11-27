@@ -7392,7 +7392,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-16_W7.62mm_LongPads"
+		(property "Footprint" "Package_DIP:DIP-16_W7.62mm"
 			(at 43.18 49.53 0)
 			(effects
 				(font
