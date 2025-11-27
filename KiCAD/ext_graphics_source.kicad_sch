@@ -1508,6 +1508,18 @@
 		(color 0 0 0 0)
 		(uuid "f759618f-b829-4d20-a6ae-aefa4c40a0b3")
 	)
+	(no_connect
+		(at 97.79 81.28)
+		(uuid "4dfdc3ed-0171-4b30-b7d9-8e1ee0ccd037")
+	)
+	(no_connect
+		(at 97.79 182.88)
+		(uuid "52337401-9957-45a8-a800-05d21bd42c7d")
+	)
+	(no_connect
+		(at 97.79 132.08)
+		(uuid "8f310f5d-bba3-4b23-ba1e-269961ca27e6")
+	)
 	(bus_entry
 		(at 107.95 165.1)
 		(size 2.54 2.54)

@@ -3255,6 +3255,10 @@
 		(at 26.67 171.45)
 		(uuid "e6e5459b-20a2-4ad5-83fe-91610b2a16ad")
 	)
+	(no_connect
+		(at 186.69 158.75)
+		(uuid "fe23c968-b151-479c-befb-b3b101512ba3")
+	)
 	(bus_entry
 		(at 199.39 48.26)
 		(size -2.54 -2.54)
@@ -4049,16 +4053,6 @@
 		)
 		(uuid "326e3b56-6660-4ef3-9c57-b3bce45fc436")
 	)
-	(wire
-		(pts
-			(xy 199.39 27.94) (xy 208.28 27.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "32919f6e-6beb-4368-b81d-b05816256f0b")
-	)
 	(bus
 		(pts
 			(xy 76.2 104.14) (xy 76.2 93.98)
@@ -4168,6 +4162,16 @@
 			(type default)
 		)
 		(uuid "429b6782-ef13-46bc-8f53-c29fcff2d8e9")
+	)
+	(wire
+		(pts
+			(xy 199.39 27.94) (xy 208.28 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "485ec388-6a5c-4413-bb03-53916d6472ae")
 	)
 	(wire
 		(pts
@@ -5319,6 +5323,16 @@
 		)
 		(uuid "25257ff2-af92-462d-a499-2c3e253a34e9")
 	)
+	(label "RAM0_d[0..7]"
+		(at 97.79 93.98 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "34dda8b0-cd5b-43bf-a1ba-ec5bbf6e9c15")
+	)
 	(label "ext_graphics_rclk"
 		(at 171.45 156.21 270)
 		(effects
@@ -5378,6 +5392,16 @@
 			(justify left bottom)
 		)
 		(uuid "4b183608-072a-47ad-9b36-2dcfae7ca7cf")
+	)
+	(label "RAM1_d[0..7]"
+		(at 97.79 97.79 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "55c6694a-80c9-4e45-88f3-d274372af6dd")
 	)
 	(label "RAM1_a9"
 		(at 199.39 50.8 0)
@@ -5529,6 +5553,16 @@
 		)
 		(uuid "7e386eda-9ed5-4994-b095-c9f2946e5694")
 	)
+	(label "RAM1_a[0..14]"
+		(at 196.85 85.09 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "85dd29e3-c550-486a-ae8b-38c2f9fce049")
+	)
 	(label "RAM1_a7"
 		(at 199.39 45.72 0)
 		(effects
@@ -5668,6 +5702,16 @@
 			(justify left bottom)
 		)
 		(uuid "e184ddbf-5d6c-4d2f-b24d-7510cd91d34d")
+	)
+	(label "RAM0_a[0..14]"
+		(at 137.16 82.55 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e363bc63-ade1-4aa9-af1a-cf1728d5a83e")
 	)
 	(label "RAM1_d3"
 		(at 238.76 35.56 0)
@@ -7178,6 +7222,72 @@
 			(project ""
 				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179/a295050b-d209-4efc-8327-c0e97d5127bf"
 					(reference "#PWR0120")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 179.07 148.59 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c47ab2f5-cfe6-4bba-9503-38efb1de5c06")
+		(property "Reference" "#PWR0122"
+			(at 179.07 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 179.07 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 179.07 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 179.07 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 179.07 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "68168f14-36a8-4531-844b-fc728cb7a35b")
+		)
+		(instances
+			(project ""
+				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179/a295050b-d209-4efc-8327-c0e97d5127bf"
+					(reference "#PWR0122")
 					(unit 1)
 				)
 			)

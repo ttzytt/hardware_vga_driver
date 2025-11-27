@@ -1181,6 +1181,10 @@
 		(uuid "430e6b0a-30ac-4f75-a2fb-a1484255a557")
 	)
 	(no_connect
+		(at 140.97 83.82)
+		(uuid "46940cd9-b013-449e-9d28-43b268763bce")
+	)
+	(no_connect
 		(at 231.14 60.96)
 		(uuid "4a51ade7-8fba-4b8a-a926-b25e1b9a5be3")
 	)
@@ -1604,7 +1608,7 @@
 		)
 		(uuid "5a719132-cffa-4b27-8fa1-29d3a40e4be3")
 	)
-	(label "D"
+	(label "D[0..7]"
 		(at 95.25 81.28 0)
 		(effects
 			(font
@@ -2965,7 +2969,7 @@
 				(justify left top)
 			)
 		)
-		(pin "O[0..7]" output
+		(pin "O_[0..7]" output
 			(at 88.9 81.28 0)
 			(uuid "cc30a34d-f3a0-4676-990e-3daa02178255")
 			(effects

@@ -4471,6 +4471,10 @@
 		(uuid "1525e681-c17a-4c05-908d-8023b45dffc6")
 	)
 	(no_connect
+		(at 133.35 149.86)
+		(uuid "160cfbab-57b3-41d9-a382-031121e7c39f")
+	)
+	(no_connect
 		(at 31.75 97.79)
 		(uuid "16c2cf49-e5be-47bd-92a2-82942576f51e")
 	)
@@ -4479,8 +4483,16 @@
 		(uuid "16e6ca33-0e9f-44e7-901b-908a7b58d4c4")
 	)
 	(no_connect
+		(at 224.79 147.32)
+		(uuid "3fa1d60e-bc97-4c49-9119-cb8d2c6322ae")
+	)
+	(no_connect
 		(at 15.24 45.72)
 		(uuid "40b8ab8e-2f3b-4e7a-9fe4-c471c11834ed")
+	)
+	(no_connect
+		(at 187.96 151.13)
+		(uuid "484f5449-33ac-4c52-a15b-43dd14cee93a")
 	)
 	(no_connect
 		(at 16.51 109.22)
@@ -4491,8 +4503,16 @@
 		(uuid "628bce9d-28db-4004-bbee-00ba5838a217")
 	)
 	(no_connect
+		(at 240.03 137.16)
+		(uuid "6ac0c29a-06d0-473a-9d87-a74919151f4b")
+	)
+	(no_connect
 		(at 30.48 45.72)
 		(uuid "6d81f7e7-9d74-47c4-a38b-999825c86042")
+	)
+	(no_connect
+		(at 187.96 153.67)
+		(uuid "7d52c49a-1712-46aa-8763-a35e259b863c")
 	)
 	(no_connect
 		(at 15.24 58.42)
@@ -4507,6 +4527,14 @@
 		(uuid "9500b566-c942-4d60-a88c-8689052a1180")
 	)
 	(no_connect
+		(at 240.03 152.4)
+		(uuid "a5af1a3f-ecf8-4e1e-8f3d-cbdd253cec79")
+	)
+	(no_connect
+		(at 187.96 156.21)
+		(uuid "acfdacd0-0e4f-495b-ba51-1de0b90e4db2")
+	)
+	(no_connect
 		(at 30.48 19.05)
 		(uuid "b047622d-1dca-42d9-8578-f2a487de429d")
 	)
@@ -4519,12 +4547,28 @@
 		(uuid "ba680403-cee7-4c33-a58e-416575f6d651")
 	)
 	(no_connect
+		(at 133.35 138.43)
+		(uuid "ce5c1a21-cdc9-4a95-92e0-6bcc009233a7")
+	)
+	(no_connect
 		(at 30.48 31.75)
 		(uuid "d209e437-495e-4ea1-aaa5-6d8955168cef")
 	)
 	(no_connect
+		(at 133.35 128.27)
+		(uuid "dacdb5b4-37ee-4ad6-b65d-e83c17659efd")
+	)
+	(no_connect
 		(at 30.48 58.42)
 		(uuid "dd22d54d-d7f5-4234-a121-7ee613b94479")
+	)
+	(no_connect
+		(at 224.79 144.78)
+		(uuid "f7083ba0-5402-45e2-85e8-71f47023a74a")
+	)
+	(no_connect
+		(at 240.03 132.08)
+		(uuid "f7224f76-a4b8-458b-9d51-46ce98d2a1b6")
 	)
 	(wire
 		(pts
@@ -5566,6 +5610,16 @@
 		)
 		(uuid "ffad9ba3-f02b-4295-bde7-91fb7ff510ef")
 	)
+	(label "j_addr3"
+		(at 187.96 118.11 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0192fe43-13ba-45e0-9c37-4bf282c4d7d4")
+	)
 	(label "is_h_vis_area"
 		(at 187.96 130.81 0)
 		(effects
@@ -5696,16 +5750,6 @@
 		)
 		(uuid "2b172886-6d9b-44f7-9908-be6a7d8b8a9c")
 	)
-	(label "j_addr_2"
-		(at 187.96 115.57 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "2bb3c88e-9bd1-471f-94cd-62a8f5b65e25")
-	)
 	(label "v_sync"
 		(at 175.26 146.05 180)
 		(effects
@@ -5716,6 +5760,16 @@
 		)
 		(uuid "2d0f6db5-6f9c-4f9f-b6a5-f0b1d5178273")
 	)
+	(label "j_addr0"
+		(at 187.96 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "304e84c3-bbbe-41b2-8c5d-b110ad2be3ea")
+	)
 	(label "VGA_R"
 		(at 148.59 135.89 0)
 		(effects
@@ -5725,16 +5779,6 @@
 			(justify left bottom)
 		)
 		(uuid "38265823-43cf-41ed-9769-1dbc3dc5b766")
-	)
-	(label "j_addr_0"
-		(at 187.96 110.49 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "388c4487-961f-4bca-81b6-38839d5e291a")
 	)
 	(label "VGA_B"
 		(at 148.59 157.48 0)
@@ -5765,16 +5809,6 @@
 			(justify right bottom)
 		)
 		(uuid "418b0bb5-6845-40a2-a8e6-224aef4b8713")
-	)
-	(label "j_addr_7"
-		(at 187.96 128.27 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "47708fc4-f17f-42bd-9660-1e8c24f988b8")
 	)
 	(label "RAM0_~{CE}"
 		(at 175.26 148.59 180)
@@ -5826,15 +5860,15 @@
 		)
 		(uuid "5993141b-2a57-481b-8813-9c0ca882f5fe")
 	)
-	(label "j_addr_3"
-		(at 187.96 118.11 0)
+	(label "j_addr1"
+		(at 187.96 113.03 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "5dd174d1-8f1e-4379-88fa-505119acedfc")
+		(uuid "65ecb5db-0cfc-47c8-9bfd-f773930ff589")
 	)
 	(label "ext_R"
 		(at 187.96 138.43 0)
@@ -5855,16 +5889,6 @@
 			(justify right bottom)
 		)
 		(uuid "68afefbc-99a3-47c4-b062-eb7860ee1cf5")
-	)
-	(label "j_addr_6"
-		(at 187.96 125.73 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "6a75d1ce-edfe-4564-993d-8aaa6cc1b060")
 	)
 	(label "is_v_vis_area"
 		(at 187.96 133.35 0)
@@ -5956,6 +5980,26 @@
 		)
 		(uuid "7b3a31df-a364-4393-a4da-cf57b3f915b8")
 	)
+	(label "j_addr7"
+		(at 187.96 128.27 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7b80b730-0c7a-472b-905b-8d159774d45b")
+	)
+	(label "j_addr6"
+		(at 187.96 125.73 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7d28230f-58bc-42f9-a503-8409769b527b")
+	)
 	(label "eo_frame"
 		(at 175.26 133.35 180)
 		(effects
@@ -5986,6 +6030,16 @@
 		)
 		(uuid "81c83e96-bee7-4bb7-8aa6-53bd45462dd2")
 	)
+	(label "j_addr2"
+		(at 187.96 115.57 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "880a458b-128a-4b33-9bd8-eff231436531")
+	)
 	(label "is_vis_area"
 		(at 187.96 135.89 0)
 		(effects
@@ -5996,6 +6050,16 @@
 		)
 		(uuid "94748826-e168-4233-827b-9ede9431dfa2")
 	)
+	(label "j_addr4"
+		(at 187.96 120.65 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "98e0b92f-038a-44c9-99a1-3233730d321c")
+	)
 	(label "i_addr6"
 		(at 175.26 125.73 180)
 		(effects
@@ -6005,16 +6069,6 @@
 			(justify right bottom)
 		)
 		(uuid "adc9b097-7c77-4306-897c-5076ed987481")
-	)
-	(label "j_addr_1"
-		(at 187.96 113.03 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ae503491-c477-4f01-8fb6-1db628556ace")
 	)
 	(label "RAM1_~{CE}"
 		(at 193.04 62.23 0)
@@ -6047,12 +6101,12 @@
 		(uuid "b7b39688-010c-4718-b86a-2e8b68638287")
 	)
 	(label "RAM0_~{WE}"
-		(at 166.37 151.13 0)
+		(at 175.26 151.13 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "badcc04b-fe59-4b8e-a2c4-3c4651b95d01")
 	)
@@ -6096,16 +6150,6 @@
 		)
 		(uuid "d2f3064c-3c54-436c-8274-6a98c20b976e")
 	)
-	(label "j_addr_5"
-		(at 187.96 123.19 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d3f158f0-c359-4e6f-a641-daffc905d6e7")
-	)
 	(label "ext_B"
 		(at 187.96 143.51 0)
 		(effects
@@ -6115,6 +6159,16 @@
 			(justify left bottom)
 		)
 		(uuid "d71d7ab1-6a12-4cd8-9839-c5a3089a6870")
+	)
+	(label "j_addr5"
+		(at 187.96 123.19 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d9d601db-dd29-42b8-bde5-d182a0c625bb")
 	)
 	(label "h_sync"
 		(at 175.26 143.51 180)
@@ -6155,16 +6209,6 @@
 			(justify left bottom)
 		)
 		(uuid "e4f954df-b607-4a77-a79e-9339622f65b8")
-	)
-	(label "j_addr_4"
-		(at 187.96 120.65 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e60f1935-d662-4f96-bc46-74499ee21642")
 	)
 	(label "i_addr4"
 		(at 175.26 120.65 180)
