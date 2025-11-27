@@ -4417,16 +4417,6 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 99.06) (xy 252.73 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c03beea2-cddb-4134-a36f-90475f530651")
-	)
-	(wire
-		(pts
 			(xy 120.65 52.07) (xy 120.65 54.61)
 		)
 		(stroke
@@ -4724,6 +4714,16 @@
 			(type default)
 		)
 		(uuid "fa05c8e3-e047-41a5-a0e8-260a4ff1e7a6")
+	)
+	(wire
+		(pts
+			(xy 238.76 99.06) (xy 252.73 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fdbef904-aa88-438a-a971-e8facd3cace2")
 	)
 	(label "rst"
 		(at 213.36 129.54 180)

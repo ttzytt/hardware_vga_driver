@@ -107,6 +107,29 @@
 			(embedded_fonts no)
 		)
 	)
+	(arc
+		(start 95.25 55.88)
+		(mid 93.3901 60.3701)
+		(end 88.9 62.23)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid cd8ba0b9-c567-4e98-85ca-2a4ade430ca8)
+	)
+	(text "TODO: make min example for this issue\n"
+		(exclude_from_sim no)
+		(at 89.662 53.086 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b9b378ae-d4d9-4245-bb69-68b47756d462")
+	)
 	(junction
 		(at 210.82 100.33)
 		(diameter 0)
@@ -159,16 +182,6 @@
 		)
 		(uuid "229431eb-9297-494c-be12-20c76ca257b8")
 	)
-	(wire
-		(pts
-			(xy 83.82 68.58) (xy 93.98 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "375cc65d-707e-4995-b198-fbe750a4c07a")
-	)
 	(bus
 		(pts
 			(xy 43.18 82.55) (xy 54.61 82.55)
@@ -201,7 +214,7 @@
 	)
 	(bus
 		(pts
-			(xy 83.82 71.12) (xy 85.09 71.12)
+			(xy 83.82 71.12) (xy 86.36 71.12)
 		)
 		(stroke
 			(width 0)
@@ -429,6 +442,16 @@
 		)
 		(uuid "f8a7a9e9-f76e-4902-8892-45ce9ff27f61")
 	)
+	(wire
+		(pts
+			(xy 83.82 68.58) (xy 88.9 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fda40091-974b-4114-b199-c107e624bc6e")
+	)
 	(bus
 		(pts
 			(xy 262.89 66.04) (xy 262.89 82.55)
@@ -458,6 +481,16 @@
 			(justify right bottom)
 		)
 		(uuid "15c15796-ddca-46dd-9210-92dac23efb86")
+	)
+	(label "r_j_addr0"
+		(at 86.36 68.58 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "371d9396-75ca-49a0-acd4-c2eb4920ec8c")
 	)
 	(label "w_addr[0..14]"
 		(at 85.09 85.09 0)
@@ -509,18 +542,8 @@
 		)
 		(uuid "d0060622-0c36-44c2-aeda-9597b8473e7d")
 	)
-	(label "rbit_0"
-		(at 86.36 68.58 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d11c3e66-fa54-4850-8936-34e404309e0c")
-	)
 	(label "r_addr[0..14]"
-		(at 85.09 71.12 0)
+		(at 86.36 71.12 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -606,7 +629,7 @@
 	)
 	(hierarchical_label "rbit_0"
 		(shape output)
-		(at 93.98 68.58 0)
+		(at 88.9 68.58 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1075,7 +1098,7 @@
 				(justify left top)
 			)
 		)
-		(pin "j_addr0" output
+		(pin "bit0" output
 			(at 83.82 68.58 0)
 			(uuid "d0a10635-263c-4be4-b678-9ebb24030034")
 			(effects
@@ -1249,7 +1272,7 @@
 				(justify left top)
 			)
 		)
-		(pin "j_addr0" output
+		(pin "bit0" output
 			(at 83.82 82.55 0)
 			(uuid "770904a4-20f6-4734-97a3-a4b1f818cd65")
 			(effects
