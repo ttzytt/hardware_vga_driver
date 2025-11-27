@@ -3662,24 +3662,12 @@
 		(uuid "34b81e8e-b2af-4cd8-8278-537951c6556e")
 	)
 	(no_connect
-		(at 148.59 104.14)
-		(uuid "3ba529fe-350a-47d5-b466-46e0b442c483")
-	)
-	(no_connect
 		(at 162.56 144.78)
 		(uuid "3c531464-e925-4d4d-8d30-27de9859156c")
 	)
 	(no_connect
 		(at 146.05 39.37)
 		(uuid "47246fb1-ea93-4580-a7e7-86db64dd5e6e")
-	)
-	(no_connect
-		(at 144.78 107.95)
-		(uuid "a384ff09-444f-478c-b677-a027bac19239")
-	)
-	(no_connect
-		(at 144.78 142.24)
-		(uuid "b9617faa-9a99-4558-8848-0cf20844192f")
 	)
 	(no_connect
 		(at 146.05 41.91)

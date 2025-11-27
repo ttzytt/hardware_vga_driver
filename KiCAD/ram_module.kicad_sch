@@ -7637,7 +7637,7 @@
 				(justify left top)
 			)
 		)
-		(pin "w_i_addr[0..7]" output
+		(pin "i_addr[0..7]" output
 			(at 50.8 87.63 0)
 			(uuid "cdbbeb1a-86f7-4e2a-9fb4-3d5e5634b463")
 			(effects
@@ -7647,7 +7647,7 @@
 				(justify right)
 			)
 		)
-		(pin "w_data[0..7]" output
+		(pin "data[0..7]" output
 			(at 50.8 90.17 0)
 			(uuid "248c9192-c9cb-44a5-bb23-e525a049b22f")
 			(effects
@@ -7657,7 +7657,7 @@
 				(justify right)
 			)
 		)
-		(pin "w_j_addr[0..7]" output
+		(pin "j_addr[0..7]" output
 			(at 50.8 85.09 0)
 			(uuid "e659d82b-69ab-4d59-a758-8dcf841f10cd")
 			(effects

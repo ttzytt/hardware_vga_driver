@@ -3086,7 +3086,7 @@
 		)
 		(uuid "026f607a-e0c2-4176-9b74-003a64d3e52a")
 	)
-	(label "w_j_addr1"
+	(label "j_addr1"
 		(at 97.79 60.96 0)
 		(effects
 			(font
@@ -3106,16 +3106,6 @@
 		)
 		(uuid "10bcb526-773e-4620-ad3d-754bc03cdd89")
 	)
-	(label "w_data3"
-		(at 97.79 167.64 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "1da637cb-b3fc-4350-be12-821a9e3afdea")
-	)
 	(label "j_addr_srclk"
 		(at 204.47 144.78 0)
 		(effects
@@ -3126,7 +3116,7 @@
 		)
 		(uuid "261de271-46a4-4cf6-a417-3d5f99643728")
 	)
-	(label "w_j_addr5"
+	(label "j_addr5"
 		(at 97.79 71.12 0)
 		(effects
 			(font
@@ -3136,37 +3126,7 @@
 		)
 		(uuid "297be6f1-aba3-49bb-8d4a-af2a2ceebd06")
 	)
-	(label "w_data5"
-		(at 97.79 172.72 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "2c387851-0924-429f-9d1c-ec385e68b7f4")
-	)
-	(label "w_data1"
-		(at 97.79 162.56 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "2c6f9d26-4e2a-4aec-9aed-89bfab57be2a")
-	)
-	(label "w_data0"
-		(at 97.79 160.02 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "351b1a2f-ed64-4ee7-9ff7-9cc02d750c77")
-	)
-	(label "w_i_addr4"
+	(label "i_addr4"
 		(at 97.79 119.38 0)
 		(effects
 			(font
@@ -3176,7 +3136,17 @@
 		)
 		(uuid "35acb4d7-53f2-46f8-9b96-f3a8add17803")
 	)
-	(label "w_j_addr4"
+	(label "data1"
+		(at 99.06 162.56 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "37bb0d15-a959-44b7-8504-5a58660103f0")
+	)
+	(label "j_addr4"
 		(at 97.79 68.58 0)
 		(effects
 			(font
@@ -3216,17 +3186,7 @@
 		)
 		(uuid "46ad0e83-2e99-4c96-95ee-767c454c3856")
 	)
-	(label "w_data7"
-		(at 97.79 177.8 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "472db9c5-a71f-49dc-8aed-58a865b2d6cd")
-	)
-	(label "w_j_addr2"
+	(label "j_addr2"
 		(at 97.79 63.5 0)
 		(effects
 			(font
@@ -3246,7 +3206,7 @@
 		)
 		(uuid "516e8ab7-c63a-4d98-976e-df42ba39c776")
 	)
-	(label "w_j_addr0"
+	(label "j_addr0"
 		(at 97.79 58.42 0)
 		(effects
 			(font
@@ -3255,16 +3215,6 @@
 			(justify left bottom)
 		)
 		(uuid "525be15d-a251-4670-87b6-5781706e3f46")
-	)
-	(label "w_data2"
-		(at 97.79 165.1 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "52e03ac5-ee8d-4cff-81d3-2516cb2cc4ea")
 	)
 	(label "j_addr_rclk"
 		(at 201.93 153.67 0)
@@ -3286,7 +3236,7 @@
 		)
 		(uuid "5adb9881-c374-453e-9dac-55c2eb68d41b")
 	)
-	(label "w_i_addr1"
+	(label "i_addr1"
 		(at 97.79 111.76 0)
 		(effects
 			(font
@@ -3306,17 +3256,7 @@
 		)
 		(uuid "66c64810-1078-44c9-ab83-0761599bffd7")
 	)
-	(label "w_data4"
-		(at 97.79 170.18 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "6941d848-afa6-42ac-a12c-6740d78bebfb")
-	)
-	(label "w_i_addr5"
+	(label "i_addr5"
 		(at 97.79 121.92 0)
 		(effects
 			(font
@@ -3325,6 +3265,16 @@
 			(justify left bottom)
 		)
 		(uuid "6b36fdad-3bbb-450d-a73c-7da3066f98f3")
+	)
+	(label "data0"
+		(at 99.06 160.02 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "748f8224-edaa-46e8-be22-4f43d20a8bbf")
 	)
 	(label "data_srclk"
 		(at 204.47 149.86 0)
@@ -3346,7 +3296,7 @@
 		)
 		(uuid "7c520733-cc8b-4219-a15a-a3ee0dc97305")
 	)
-	(label "w_i_addr7"
+	(label "i_addr7"
 		(at 97.79 127 0)
 		(effects
 			(font
@@ -3355,6 +3305,16 @@
 			(justify left bottom)
 		)
 		(uuid "7ed36cda-d348-4144-9ce4-0f51afa649c3")
+	)
+	(label "data5"
+		(at 99.06 172.72 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8a308865-f47c-41c2-be38-4e71b5eee031")
 	)
 	(label "j_addr_ser"
 		(at 214.63 124.46 0)
@@ -3366,7 +3326,17 @@
 		)
 		(uuid "90069164-2d6c-4348-9c92-65b6c84891c3")
 	)
-	(label "w_i_addr6"
+	(label "data6"
+		(at 99.06 175.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "938964ed-1529-483a-b2c5-00376aaf73ba")
+	)
+	(label "i_addr6"
 		(at 97.79 124.46 0)
 		(effects
 			(font
@@ -3406,6 +3376,26 @@
 		)
 		(uuid "a64df1af-8478-46ec-b0a2-25e1ec5e29ab")
 	)
+	(label "data7"
+		(at 99.06 177.8 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a6ddaabd-b16d-4d5a-836b-7d72558929bd")
+	)
+	(label "data3"
+		(at 99.06 167.64 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a8a16f41-ae1f-4298-881d-f1fa2fcd2f59")
+	)
 	(label "j_addr_rclk"
 		(at 45.72 71.12 180)
 		(effects
@@ -3426,7 +3416,7 @@
 		)
 		(uuid "b2e996c0-6218-4e01-95c1-09ec72a5b44b")
 	)
-	(label "w_i_addr3"
+	(label "i_addr3"
 		(at 97.79 116.84 0)
 		(effects
 			(font
@@ -3435,16 +3425,6 @@
 			(justify left bottom)
 		)
 		(uuid "b48d90e4-e2a5-422c-8baf-ab7f69abecd2")
-	)
-	(label "w_data6"
-		(at 97.79 175.26 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b513aa10-27df-4019-912a-bbeb79b64412")
 	)
 	(label "data_~{srclr}"
 		(at 207.01 140.97 0)
@@ -3456,7 +3436,7 @@
 		)
 		(uuid "b68e5a1a-16ce-4e8a-b11e-2b507d4ef722")
 	)
-	(label "w_j_addr3"
+	(label "j_addr3"
 		(at 97.79 66.04 0)
 		(effects
 			(font
@@ -3466,7 +3446,7 @@
 		)
 		(uuid "bc24f904-78aa-4df3-be92-b4eaa31a1659")
 	)
-	(label "w_i_addr0"
+	(label "i_addr0"
 		(at 97.79 109.22 0)
 		(effects
 			(font
@@ -3486,7 +3466,7 @@
 		)
 		(uuid "daa5a8ff-f0c5-4564-9096-3816c29aa68b")
 	)
-	(label "w_i_addr2"
+	(label "i_addr2"
 		(at 97.79 114.3 0)
 		(effects
 			(font
@@ -3506,6 +3486,16 @@
 		)
 		(uuid "dd550ed8-336e-404b-a6d2-4a3ab2605fc3")
 	)
+	(label "data2"
+		(at 99.06 165.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "df6ed807-384c-48ea-8ec3-feb1d291fa07")
+	)
 	(label "i_addr_~{srclr}"
 		(at 53.34 116.84 180)
 		(effects
@@ -3515,6 +3505,16 @@
 			(justify right bottom)
 		)
 		(uuid "dfe568bf-fc17-499c-a9fe-3d51b0fb3785")
+	)
+	(label "data4"
+		(at 99.06 170.18 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e27b2ce4-6628-480f-bb0a-95b7e174c1b7")
 	)
 	(label "i_addr_rclk"
 		(at 201.93 156.21 0)
@@ -3526,7 +3526,7 @@
 		)
 		(uuid "e2adbbd4-8371-4a13-ba0f-0bc8f65b309e")
 	)
-	(label "w_j_addr7"
+	(label "j_addr7"
 		(at 97.79 76.2 0)
 		(effects
 			(font
@@ -3546,7 +3546,7 @@
 		)
 		(uuid "f05bafdd-447c-4d0d-8675-a9bc3074aeb6")
 	)
-	(label "w_j_addr6"
+	(label "j_addr6"
 		(at 97.79 73.66 0)
 		(effects
 			(font
@@ -3567,7 +3567,7 @@
 		)
 		(uuid "007dd35e-1aa2-4760-879e-95a7efb92ba7")
 	)
-	(hierarchical_label "w_data[0..7]"
+	(hierarchical_label "data[0..7]"
 		(shape output)
 		(at 119.38 180.34 0)
 		(effects
@@ -3589,7 +3589,7 @@
 		)
 		(uuid "8b05c4c6-6743-48a4-b10b-a4bb3b2ae50e")
 	)
-	(hierarchical_label "w_i_addr[0..7]"
+	(hierarchical_label "i_addr[0..7]"
 		(shape output)
 		(at 120.65 129.54 0)
 		(effects
@@ -3600,7 +3600,7 @@
 		)
 		(uuid "c38f9a8c-b7bd-4247-8d6b-33c13ea068af")
 	)
-	(hierarchical_label "w_j_addr[0..7]"
+	(hierarchical_label "j_addr[0..7]"
 		(shape output)
 		(at 120.65 78.74 0)
 		(effects
