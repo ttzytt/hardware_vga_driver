@@ -1437,6 +1437,12 @@
 		(uuid "4cbead85-99e4-4737-b21e-b123fd8a089b")
 	)
 	(junction
+		(at 215.9 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5257e4bb-a54e-4353-a9b1-37e5efb2758d")
+	)
+	(junction
 		(at 45.72 151.13)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1877,6 +1883,16 @@
 			(type default)
 		)
 		(uuid "217d5c3a-acf0-40f1-bd10-002653ff92e7")
+	)
+	(wire
+		(pts
+			(xy 215.9 58.42) (xy 215.9 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "21ac4ca1-5a4e-42ac-8500-8878e4e5e1e7")
 	)
 	(wire
 		(pts
@@ -3528,6 +3544,17 @@
 		)
 		(uuid "fe644eeb-85d9-4882-a448-381dc82f249a")
 	)
+	(hierarchical_label "rclk"
+		(shape output)
+		(at 201.93 158.75 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "007dd35e-1aa2-4760-879e-95a7efb92ba7")
+	)
 	(hierarchical_label "w_data[0..7]"
 		(shape output)
 		(at 119.38 180.34 0)
@@ -3538,6 +3565,17 @@
 			(justify left)
 		)
 		(uuid "44ebf756-33bb-4671-9d30-10e888070c1e")
+	)
+	(hierarchical_label "await_upd"
+		(shape input)
+		(at 215.9 58.42 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8b05c4c6-6743-48a4-b10b-a4bb3b2ae50e")
 	)
 	(hierarchical_label "w_i_addr[0..7]"
 		(shape output)

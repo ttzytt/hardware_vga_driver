@@ -2373,16 +2373,16 @@
 			)
 		)
 		(pin "6"
-			(uuid "5bad2e02-8eb3-4508-8a50-f6b7ca13a939")
+			(uuid "5bad2e02-8eb3-4508-8a50-f6b7ca13a93a")
 		)
 		(pin "4"
-			(uuid "a5ec3456-221d-4c21-8fd6-64e98c1edb45")
+			(uuid "a5ec3456-221d-4c21-8fd6-64e98c1edb46")
 		)
 		(pin "3"
 			(uuid "5977220d-0419-4812-b125-2bbd2e3de6f6")
 		)
 		(pin "7"
-			(uuid "c48d214d-2f38-462c-9ddf-a65ffeeade69")
+			(uuid "c48d214d-2f38-462c-9ddf-a65ffeeade6a")
 		)
 		(pin "2"
 			(uuid "2481d0af-3902-479d-9a3d-004447cb1973")
@@ -2391,10 +2391,10 @@
 			(uuid "72beb7c9-81c0-4366-b7d0-6ad77b296895")
 		)
 		(pin "8"
-			(uuid "d4f5834a-7058-4953-8a74-e4e6a05b2efc")
+			(uuid "d4f5834a-7058-4953-8a74-e4e6a05b2efd")
 		)
 		(pin "5"
-			(uuid "87c7ba6d-142a-421a-80e6-5755fef43396")
+			(uuid "87c7ba6d-142a-421a-80e6-5755fef43397")
 		)
 		(instances
 			(project "vga_video_card"
@@ -2461,16 +2461,16 @@
 			)
 		)
 		(pin "6"
-			(uuid "5bad2e02-8eb3-4508-8a50-f6b7ca13a93a")
+			(uuid "5bad2e02-8eb3-4508-8a50-f6b7ca13a93b")
 		)
 		(pin "4"
-			(uuid "a5ec3456-221d-4c21-8fd6-64e98c1edb46")
+			(uuid "a5ec3456-221d-4c21-8fd6-64e98c1edb47")
 		)
 		(pin "3"
 			(uuid "023d89e7-f09c-4613-8e52-798a55138a04")
 		)
 		(pin "7"
-			(uuid "c48d214d-2f38-462c-9ddf-a65ffeeade6a")
+			(uuid "c48d214d-2f38-462c-9ddf-a65ffeeade6b")
 		)
 		(pin "2"
 			(uuid "91ee8b88-25cd-4349-89ca-66c7153cd0a4")
@@ -2479,10 +2479,10 @@
 			(uuid "ac4dde2f-7720-463c-ae4c-67a7efe6bc95")
 		)
 		(pin "8"
-			(uuid "d4f5834a-7058-4953-8a74-e4e6a05b2efd")
+			(uuid "d4f5834a-7058-4953-8a74-e4e6a05b2efe")
 		)
 		(pin "5"
-			(uuid "87c7ba6d-142a-421a-80e6-5755fef43397")
+			(uuid "87c7ba6d-142a-421a-80e6-5755fef43398")
 		)
 		(instances
 			(project ""
