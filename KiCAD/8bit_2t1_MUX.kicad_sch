@@ -1724,7 +1724,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "45665423-c607-4110-8f09-e8493391372d")
-		(property "Reference" "U56"
+		(property "Reference" "U38"
 			(at 132.9533 62.23 0)
 			(effects
 				(font
@@ -1742,7 +1742,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_DIP:DIP-16_W7.62mm"
 			(at 130.81 85.09 0)
 			(effects
 				(font
@@ -1770,55 +1770,59 @@
 			)
 		)
 		(pin "2"
-			(uuid "2e5c053b-1f9f-4957-8e9e-035718120d02")
+			(uuid "7ec9bb50-8652-4a58-ba6f-b56b0d1b2dbd")
 		)
 		(pin "6"
-			(uuid "c234f36a-1865-4068-9d12-d5d1c2902535")
+			(uuid "b5d4cfe0-852e-48f0-b216-90314f70439a")
 		)
 		(pin "7"
-			(uuid "8006c63c-df05-466b-b66a-4d5ef5eae079")
+			(uuid "8858d650-9a1e-4de6-b83a-f2560eab2468")
 		)
 		(pin "12"
-			(uuid "98654de7-984f-4bf5-9bf7-f9025f5e7a93")
+			(uuid "d620c1b6-85db-4371-b9ef-8c66ec0ad314")
 		)
 		(pin "8"
-			(uuid "7fbef776-042a-424c-901f-9b70da3c7eb1")
+			(uuid "50fd2858-86f8-4ad9-87fa-0460e4543de9")
 		)
 		(pin "5"
-			(uuid "0cc1c1a4-3618-430d-8dc5-756c62726b97")
+			(uuid "c3cf786d-5573-4ae8-923e-2e9212ef39a4")
 		)
 		(pin "16"
-			(uuid "60db8b4c-d7c3-4435-bad6-7650e5273378")
+			(uuid "ff982216-6742-4acf-88cf-6eb1bab3730e")
 		)
 		(pin "13"
-			(uuid "6ce5bc5e-71a1-4130-978e-bde107914ff3")
+			(uuid "3ae93048-bfdf-4069-9555-6c2773c17d0f")
 		)
 		(pin "3"
-			(uuid "ced32284-9b22-43e5-a788-b9553b0abae3")
+			(uuid "6194ba86-1006-49bf-9cf6-7adf0a5c291d")
 		)
 		(pin "10"
-			(uuid "88ddcb59-de32-4ed6-a2bd-e0354c73ed28")
+			(uuid "82cfa435-3454-4299-ab58-5371f841aeaf")
 		)
 		(pin "1"
-			(uuid "46dcdddf-ab57-424c-b920-d5e67b5df453")
+			(uuid "ef9740ec-a803-4ef3-9262-890329657a2d")
 		)
 		(pin "4"
-			(uuid "c65ec3bc-55ad-44e8-89bb-db5d1fd4749c")
+			(uuid "8d013e17-4a46-4f32-9054-d132d1be94f3")
 		)
 		(pin "14"
-			(uuid "224f85df-2198-4943-af0f-d4a215f78c32")
+			(uuid "481ad27e-8c08-4137-b8c1-3cf158a3778d")
 		)
 		(pin "9"
-			(uuid "02f113f1-dd64-4843-89e2-5120d85c2f25")
+			(uuid "701d1046-727d-4324-9d3d-d0df85273f1f")
 		)
 		(pin "15"
-			(uuid "27834044-8749-4bae-87ae-8904411d44fa")
+			(uuid "ad218821-f9fb-47da-927c-7598a5ea134a")
 		)
 		(pin "11"
-			(uuid "7a50ba44-c58c-4717-9f4f-58f4bf91b213")
+			(uuid "e48fc8c7-bfc4-42b6-9902-63d50123f788")
 		)
 		(instances
 			(project "vga_video_card"
+				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179/c08e26f6-31d4-4f9e-9b0c-128d1955ff42/8ec64eda-b8f0-452c-8446-121b177053a7"
+					(reference "U38")
+					(unit 1)
+				)
 				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179/a295050b-d209-4efc-8327-c0e97d5127bf/9d9429b1-c4f4-4d06-b7d7-8f5f8e69e70c/e9943e04-24d6-4469-9ff0-37b964b5055b"
 					(reference "U56")
 					(unit 1)
@@ -1836,7 +1840,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a989b3d2-848d-4fe8-aadf-e66264a3f56c")
-		(property "Reference" "U55"
+		(property "Reference" "U37"
 			(at 92.3133 62.23 0)
 			(effects
 				(font
@@ -1854,7 +1858,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_DIP:DIP-16_W7.62mm"
 			(at 90.17 85.09 0)
 			(effects
 				(font
@@ -1882,55 +1886,59 @@
 			)
 		)
 		(pin "2"
-			(uuid "f2f88f42-73b9-4249-bcfc-64db60c09c86")
+			(uuid "6f94a483-1de9-4bf9-a940-6f45049b86cc")
 		)
 		(pin "6"
-			(uuid "3b6d5c31-e4af-478d-bac5-28548fcf616e")
+			(uuid "55c9e2c7-dbca-4377-afab-a3e5d8c822f8")
 		)
 		(pin "7"
-			(uuid "46b0ae15-928f-4673-960e-1d23eb4ebde9")
+			(uuid "67c72d54-e527-438c-b2f9-f724fcbe8e5f")
 		)
 		(pin "12"
-			(uuid "58868fa9-51c8-4d65-b1f4-e7f71d4b7864")
+			(uuid "2070766b-cfbb-486e-a1c2-27e9073bbe62")
 		)
 		(pin "8"
-			(uuid "923338aa-6eb0-4add-b054-7455c649fe70")
+			(uuid "ad727be7-da88-4530-bd5f-115b46e4144b")
 		)
 		(pin "5"
-			(uuid "ee319807-a611-4362-a886-6e60a14a6007")
+			(uuid "51ca3b1e-0136-483f-9350-c70ed9b109ec")
 		)
 		(pin "16"
-			(uuid "2ae105b8-53cf-41ee-96bc-4cc20ebbf87e")
+			(uuid "cff43589-5748-4db5-98c0-1f305bcbcf1e")
 		)
 		(pin "13"
-			(uuid "a9ef99eb-687e-4a0c-94b3-e25b97f57237")
+			(uuid "1912e80a-23a8-4050-b34d-ff2694b87644")
 		)
 		(pin "3"
-			(uuid "af86e061-e3c6-4d6f-8668-5da0f144ba74")
+			(uuid "66111f75-9c19-4f9c-94f7-4934ce6027f9")
 		)
 		(pin "10"
-			(uuid "a1d2fd8c-718f-4284-b7e7-0cb241c75756")
+			(uuid "dd29a703-daba-4959-ac5a-0e7dc615294f")
 		)
 		(pin "1"
-			(uuid "8597b6c5-03fb-4786-ac43-903a478f01cc")
+			(uuid "352e3598-62a6-4f06-828e-844f712c1402")
 		)
 		(pin "4"
-			(uuid "8b8c590c-0eef-41e0-a7ff-0a13fa78525d")
+			(uuid "b5b56478-069c-436b-a03e-b02a2c41aecd")
 		)
 		(pin "14"
-			(uuid "ea739348-72a0-4eef-a74b-b273a2bcb691")
+			(uuid "a7199e54-594e-44a5-9c84-bfa8beba8471")
 		)
 		(pin "9"
-			(uuid "0d2078ef-7a69-4695-bdc8-3b3831a52c03")
+			(uuid "21fdecc9-bed6-4e5a-b643-e6ea8d1831a3")
 		)
 		(pin "15"
-			(uuid "1900d386-d565-4f7b-be63-ad77e688661e")
+			(uuid "49597bc0-f7d1-4916-8552-1cabcea7f323")
 		)
 		(pin "11"
-			(uuid "a871ae11-7c47-4efc-9ea8-5a965beae64c")
+			(uuid "d74b2b28-c971-4bb7-9ac9-47e1f47f73a9")
 		)
 		(instances
 			(project "vga_video_card"
+				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179/c08e26f6-31d4-4f9e-9b0c-128d1955ff42/8ec64eda-b8f0-452c-8446-121b177053a7"
+					(reference "U37")
+					(unit 1)
+				)
 				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179/a295050b-d209-4efc-8327-c0e97d5127bf/9d9429b1-c4f4-4d06-b7d7-8f5f8e69e70c/e9943e04-24d6-4469-9ff0-37b964b5055b"
 					(reference "U55")
 					(unit 1)
@@ -1948,7 +1956,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ab59507b-960a-4222-a8ca-1d51ed885f2c")
-		(property "Reference" "#PWR0117"
+		(property "Reference" "#PWR0104"
 			(at 90.17 116.84 0)
 			(effects
 				(font
@@ -1993,10 +2001,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "0d909be4-8126-4427-ac4d-00005a0049c0")
+			(uuid "d8b974c4-ab97-4057-8674-f240c3292db3")
 		)
 		(instances
 			(project "vga_video_card"
+				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179/c08e26f6-31d4-4f9e-9b0c-128d1955ff42/8ec64eda-b8f0-452c-8446-121b177053a7"
+					(reference "#PWR0104")
+					(unit 1)
+				)
 				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179/a295050b-d209-4efc-8327-c0e97d5127bf/9d9429b1-c4f4-4d06-b7d7-8f5f8e69e70c/e9943e04-24d6-4469-9ff0-37b964b5055b"
 					(reference "#PWR0117")
 					(unit 1)
@@ -2014,7 +2026,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d055ec13-b6fd-44dc-b827-8795b4ecb2da")
-		(property "Reference" "#PWR0116"
+		(property "Reference" "#PWR0103"
 			(at 90.17 66.04 0)
 			(effects
 				(font
@@ -2059,10 +2071,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "8b62c298-255f-42dd-8d32-de87ca1d8253")
+			(uuid "bafc1fe5-d594-434d-9cbe-1c916a4b353f")
 		)
 		(instances
 			(project "vga_video_card"
+				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179/c08e26f6-31d4-4f9e-9b0c-128d1955ff42/8ec64eda-b8f0-452c-8446-121b177053a7"
+					(reference "#PWR0103")
+					(unit 1)
+				)
 				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179/a295050b-d209-4efc-8327-c0e97d5127bf/9d9429b1-c4f4-4d06-b7d7-8f5f8e69e70c/e9943e04-24d6-4469-9ff0-37b964b5055b"
 					(reference "#PWR0116")
 					(unit 1)

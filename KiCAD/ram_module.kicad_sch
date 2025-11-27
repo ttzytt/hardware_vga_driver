@@ -3215,7 +3215,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_DIP:DIP-28_W7.62mm"
 			(at 213.36 66.04 0)
 			(effects
 				(font
@@ -3363,7 +3363,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_DIP:DIP-28_W7.62mm"
 			(at 153.67 66.04 0)
 			(effects
 				(font

@@ -639,6 +639,10 @@
       "RAM_state_controller"
     ],
     [
+      "8ec64eda-b8f0-452c-8446-121b177053a7",
+      "8bit_2:1_MUX"
+    ],
+    [
       "9d9429b1-c4f4-4d06-b7d7-8f5f8e69e70c",
       "RAM_bus_mux"
     ],
@@ -659,8 +663,16 @@
       "8bit_2:1_MUX"
     ],
     [
+      "c08e26f6-31d4-4f9e-9b0c-128d1955ff42",
+      "ADC_module"
+    ],
+    [
       "d31e17da-7ff7-4212-89ce-c5cc014dbb38",
       "15bit_2:1_MUX1"
+    ],
+    [
+      "6de06bf4-bb58-4084-ba8b-69483813b0aa",
+      "const_zero_8bit"
     ],
     [
       "f5c35838-e9fb-4bf9-94a1-fd6c8f9f3f0a",
