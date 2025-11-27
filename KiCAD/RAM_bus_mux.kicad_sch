@@ -1075,7 +1075,7 @@
 				(justify left top)
 			)
 		)
-		(pin "bit0" output
+		(pin "j_addr0" output
 			(at 83.82 68.58 0)
 			(uuid "d0a10635-263c-4be4-b678-9ebb24030034")
 			(effects
@@ -1249,7 +1249,7 @@
 				(justify left top)
 			)
 		)
-		(pin "bit0" output
+		(pin "j_addr0" output
 			(at 83.82 82.55 0)
 			(uuid "770904a4-20f6-4734-97a3-a4b1f818cd65")
 			(effects

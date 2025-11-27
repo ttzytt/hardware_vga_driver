@@ -697,10 +697,6 @@
       "const_zero_8bit"
     ],
     [
-      "7e5056b9-49f1-4697-8c44-c7fa0dd0b5d4",
-      "addr_combiner_helper"
-    ],
-    [
       "f5c35838-e9fb-4bf9-94a1-fd6c8f9f3f0a",
       "15bit_2:1_MUX"
     ],
@@ -711,10 +707,6 @@
     [
       "dd8eabc5-d0f0-4d98-bb07-70a977c953cb",
       "addr_combiner1"
-    ],
-    [
-      "7e5056b9-49f1-4697-8c44-c7fa0dd0b5d4",
-      "addr_combiner_helper"
     ]
   ],
   "text_variables": {}

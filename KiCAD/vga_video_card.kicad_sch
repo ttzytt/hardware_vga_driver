@@ -6363,16 +6363,6 @@
 		)
 		(uuid "e6db5c9e-044e-468f-ba8b-8591fa02a6d9")
 	)
-	(label "i_addr[0..7]"
-		(at 134.62 73.66 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f27af18e-3adb-4f47-bb9b-17fc56c04352")
-	)
 	(label "int_brightness"
 		(at 72.39 113.03 180)
 		(effects
@@ -6382,16 +6372,6 @@
 			(justify right bottom)
 		)
 		(uuid "f2bcb946-5eeb-41ef-a960-296fc32c3a83")
-	)
-	(label "j_addr[0..7]"
-		(at 134.62 41.91 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f70f7549-afa0-4e27-8934-59cd1e475559")
 	)
 	(symbol
 		(lib_id "74xx:74HC04")
