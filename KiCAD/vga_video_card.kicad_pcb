@@ -137,7 +137,7 @@
 			(mirror no)
 			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "")
+			(outputdirectory "./")
 		)
 	)
 	(net 0 "")
@@ -16346,7 +16346,7 @@
 		(property "Reference" "J2"
 			(at 0 -2.77 90)
 			(layer "F.SilkS")
-			(uuid "2676bae6-8efb-4c59-8e25-0cabaf0b6da7")
+			(uuid "ec989200-54c1-46e1-8532-d3a12ce49ea8")
 			(effects
 				(font
 					(size 1 1)
@@ -16358,7 +16358,7 @@
 			(at 0 51.03 90)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "5b35c852-4f27-4c42-a2b4-76baf43b5e0d")
+			(uuid "68d4549b-17b0-4f23-8516-8755f6c1e56f")
 			(effects
 				(font
 					(size 1 1)
@@ -16370,7 +16370,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "0a8aee88-fa21-4362-a618-4792d07f4876")
+			(uuid "ec9ccea7-ba00-4234-baf0-8b5dd679de1f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16382,7 +16382,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "4710dc66-aa46-4b38-8c45-13f642b9db53")
+			(uuid "1c5ef6e5-28c9-47ff-b605-7eb0c80e6d9a")
 			(effects
 				(font
 					(size 1.27 1.27)
