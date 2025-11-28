@@ -3686,249 +3686,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Switch:SW_DPDT_x2"
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "SW"
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SW_DPDT_x2"
-				(at 0 -5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Switch, dual pole double throw, separate symbols"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "switch dual-pole double-throw DPDT spdt ON-ON"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "SW*DPDT*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SW_DPDT_x2_0_0"
-				(circle
-					(center -2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 -2.54)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SW_DPDT_x2_0_1"
-				(rectangle
-					(start -3.175 3.81)
-					(end 3.175 -3.81)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 0.254) (xy 1.5748 2.286)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 2.54)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SW_DPDT_x2_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 2.54 180)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 -2.54 180)
-					(length 2.54)
-					(name "C"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "SW_DPDT_x2_2_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 2.54 180)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 -2.54 180)
-					(length 2.54)
-					(name "C"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Switch:SW_Push"
 			(pin_numbers
 				(hide yes)
@@ -4690,40 +4447,22 @@
 		(uuid "10cefb1c-fe5d-4fe8-a5da-3cfd2ffb8fc5")
 	)
 	(junction
-		(at 77.47 154.94)
+		(at 88.9 148.59)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "11b4c6eb-91d2-4e34-b98c-e596ae92a75f")
+		(uuid "16cde661-a713-4875-8110-4e8a51e3ba62")
 	)
 	(junction
-		(at 90.17 172.72)
+		(at 80.01 113.03)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "14e364e6-c1df-4172-b90d-c937bbac31a1")
+		(uuid "17afc8d5-2ce9-4b27-b0dc-167c5c68c941")
 	)
 	(junction
-		(at 90.17 144.78)
+		(at 90.17 118.11)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "162c8c69-e795-4b63-b634-a327ea56767c")
-	)
-	(junction
-		(at 78.74 160.02)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2a401245-215e-4f8f-bc46-bc6a4496e0b7")
-	)
-	(junction
-		(at 77.47 125.73)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "431c945a-010c-4c87-93ef-163e39d1f4c5")
-	)
-	(junction
-		(at 77.47 170.18)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "515acc48-24e1-4ddc-a5e2-ece5b2f39c07")
+		(uuid "33115faa-706d-41c1-8bb5-3e0e5612f86d")
 	)
 	(junction
 		(at 223.52 152.4)
@@ -4738,22 +4477,46 @@
 		(uuid "687aba06-7561-4a62-bf29-015689e12d5b")
 	)
 	(junction
+		(at 80.01 123.19)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6962ab38-a593-454c-8040-4e70296df493")
+	)
+	(junction
+		(at 77.47 143.51)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "69cb43aa-1b7f-4d50-84ff-db4cbd400630")
+	)
+	(junction
 		(at 223.52 134.62)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "73f0e816-f888-42e4-ab94-20bba4329521")
 	)
 	(junction
+		(at 78.74 143.51)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7604c369-2534-40b8-97fd-76baaacd3c0e")
+	)
+	(junction
+		(at 78.74 187.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7b7964e3-7352-4e39-bc7d-2b38422295c4")
+	)
+	(junction
+		(at 78.74 153.67)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7f1c0c35-d2ea-4199-a650-ff5b19468d32")
+	)
+	(junction
 		(at 223.52 149.86)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7f6c2098-1d6e-4454-93c8-e3dde452a572")
-	)
-	(junction
-		(at 90.17 128.27)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8bd88f9b-cc0a-4c30-ac94-4a85fe17bdb5")
 	)
 	(junction
 		(at 133.35 157.48)
@@ -4768,16 +4531,16 @@
 		(uuid "9736d5eb-ef57-4755-8764-221ce4165497")
 	)
 	(junction
+		(at 78.74 177.8)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a276543c-4feb-4f9f-89b6-ff5cdc9848ad")
+	)
+	(junction
 		(at 120.65 157.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ac2f4c03-b0e1-4fc4-aa30-67b42d5c2dbc")
-	)
-	(junction
-		(at 78.74 187.96)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b88238c8-aea2-41fd-ad31-fbc5de1a001a")
 	)
 	(junction
 		(at 59.69 34.29)
@@ -4798,6 +4561,12 @@
 		(uuid "c6a2ddbd-aff9-416a-9b62-43c1e3c5f005")
 	)
 	(junction
+		(at 88.9 182.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ca05a7ca-2885-4ebf-a1f1-d6329424cf9b")
+	)
+	(junction
 		(at 223.52 139.7)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4808,18 +4577,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d025119d-734d-4548-9955-3fb88b411a97")
-	)
-	(junction
-		(at 77.47 142.24)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d4c887c5-14ae-4ca1-945f-f5c17d89b3df")
-	)
-	(junction
-		(at 78.74 130.81)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d5eb9546-7a68-45cf-99c3-6801686a9b60")
 	)
 	(junction
 		(at 187.96 107.95)
@@ -4949,6 +4706,16 @@
 	)
 	(wire
 		(pts
+			(xy 93.98 148.59) (xy 88.9 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0274ab68-f34e-41a9-9b18-a2057a6cd5f8")
+	)
+	(wire
+		(pts
 			(xy 132.08 81.28) (xy 134.62 81.28)
 		)
 		(stroke
@@ -4959,13 +4726,13 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 118.11) (xy 78.74 118.11)
+			(xy 93.98 142.24) (xy 129.54 142.24)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0814c710-0f06-4207-a052-8c88a670b05e")
+		(uuid "070c0fc2-a285-48c5-8b51-85d50e7d910b")
 	)
 	(wire
 		(pts
@@ -4986,6 +4753,16 @@
 			(type default)
 		)
 		(uuid "0c938f77-1160-44c5-bab1-e9722ee21f3b")
+	)
+	(wire
+		(pts
+			(xy 77.47 113.03) (xy 77.47 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "134969d4-1fcc-446d-86c0-3e6edb3b7509")
 	)
 	(bus
 		(pts
@@ -5009,17 +4786,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 172.72) (xy 93.98 172.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "20800977-52db-4493-97fe-c127701231f2")
-	)
-	(wire
-		(pts
-			(xy 72.39 160.02) (xy 78.74 160.02)
+			(xy 72.39 153.67) (xy 78.74 153.67)
 		)
 		(stroke
 			(width 0)
@@ -5036,26 +4803,6 @@
 			(type default)
 		)
 		(uuid "254f80a5-a3f2-410e-9cf3-f151e1ecc45d")
-	)
-	(wire
-		(pts
-			(xy 78.74 160.02) (xy 80.01 160.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "26186e59-9034-43b6-8f16-15576a72462a")
-	)
-	(wire
-		(pts
-			(xy 90.17 142.24) (xy 129.54 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "26720ab2-0185-41b2-867e-c826263aa00d")
 	)
 	(wire
 		(pts
@@ -5099,6 +4846,16 @@
 	)
 	(wire
 		(pts
+			(xy 90.17 118.11) (xy 93.98 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "341c68cf-14b1-4178-9e92-09801e4b2129")
+	)
+	(wire
+		(pts
 			(xy 144.78 54.61) (xy 132.08 54.61)
 		)
 		(stroke
@@ -5119,23 +4876,13 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 170.18) (xy 77.47 182.88)
+			(xy 77.47 143.51) (xy 78.74 143.51)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3b0767cf-a82f-49c9-b1a1-a81b98ed9e3b")
-	)
-	(wire
-		(pts
-			(xy 77.47 154.94) (xy 80.01 154.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3b4591aa-adb3-468d-8f50-f219193ee64e")
+		(uuid "38ed8a53-a30d-4e0b-b869-7a27e1f92ee9")
 	)
 	(wire
 		(pts
@@ -5156,6 +4903,16 @@
 			(type default)
 		)
 		(uuid "3f04b867-74ae-41ad-b05c-da24e9fd552a")
+	)
+	(wire
+		(pts
+			(xy 80.01 123.19) (xy 90.17 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f5f258f-69af-4b1e-aa30-d93d87118072")
 	)
 	(wire
 		(pts
@@ -5229,13 +4986,13 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 172.72) (xy 93.98 153.67)
+			(xy 88.9 182.88) (xy 93.98 182.88)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "531b7373-00b7-47d9-8449-31bec4017085")
+		(uuid "5351692b-0dac-4238-8611-2e1913e25b68")
 	)
 	(wire
 		(pts
@@ -5259,13 +5016,23 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 147.32) (xy 78.74 160.02)
+			(xy 78.74 187.96) (xy 88.9 187.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "576e234f-d888-4855-9a94-963fb6fefd42")
+		(uuid "583c498b-4025-463d-841b-d0dfb6ad3646")
+	)
+	(wire
+		(pts
+			(xy 93.98 118.11) (xy 93.98 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5c4936f7-9cd4-498c-9977-4a2b364b16d2")
 	)
 	(bus
 		(pts
@@ -5276,16 +5043,6 @@
 			(type default)
 		)
 		(uuid "5cc8009a-5840-4640-af7c-f9f1d3610378")
-	)
-	(wire
-		(pts
-			(xy 80.01 147.32) (xy 78.74 147.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5d9e3795-082f-4e3f-acf4-89e7d2a88c20")
 	)
 	(wire
 		(pts
@@ -5319,17 +5076,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 130.81) (xy 80.01 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "62326563-a8d7-4398-9e18-b783e92681ac")
-	)
-	(wire
-		(pts
-			(xy 72.39 130.81) (xy 78.74 130.81)
+			(xy 72.39 123.19) (xy 80.01 123.19)
 		)
 		(stroke
 			(width 0)
@@ -5356,16 +5103,6 @@
 			(type default)
 		)
 		(uuid "66b73a5d-b999-41a6-bc07-b8ff08d99a1d")
-	)
-	(wire
-		(pts
-			(xy 80.01 170.18) (xy 77.47 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6c03a127-dce6-4974-a665-4958f28b2b59")
 	)
 	(wire
 		(pts
@@ -5399,13 +5136,13 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 175.26) (xy 78.74 175.26)
+			(xy 78.74 143.51) (xy 88.9 143.51)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "75120187-40c3-4f3e-8ffb-75cfb8dd73e1")
+		(uuid "724cf794-af5b-4f3a-898c-59908fbbde67")
 	)
 	(wire
 		(pts
@@ -5459,13 +5196,13 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 172.72) (xy 90.17 185.42)
+			(xy 72.39 187.96) (xy 78.74 187.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7bfff249-b372-48b4-b9fd-9fc845c82493")
+		(uuid "7c4fca7a-2478-48e3-91cb-e10948a039db")
 	)
 	(wire
 		(pts
@@ -5569,16 +5306,6 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 144.78) (xy 90.17 157.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "97997020-5d5f-42d4-9b5e-9f55caaa6f38")
-	)
-	(wire
-		(pts
 			(xy 85.09 52.07) (xy 85.09 44.45)
 		)
 		(stroke
@@ -5596,16 +5323,6 @@
 			(type default)
 		)
 		(uuid "99a7fadd-cf40-425b-9fd1-5d667abf3dd1")
-	)
-	(wire
-		(pts
-			(xy 90.17 144.78) (xy 90.17 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9a153b65-d631-4fd8-8386-56e76c8df0d3")
 	)
 	(wire
 		(pts
@@ -5679,16 +5396,6 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 128.27) (xy 93.98 132.08)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b2beec05-6ffd-47d1-920c-d9bdc8336965")
-	)
-	(wire
-		(pts
 			(xy 144.78 90.17) (xy 162.56 90.17)
 		)
 		(stroke
@@ -5696,6 +5403,26 @@
 			(type default)
 		)
 		(uuid "b2f5161d-3894-4258-897b-21ced42484c4")
+	)
+	(wire
+		(pts
+			(xy 80.01 113.03) (xy 90.17 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b2f8737f-1e51-42af-ad83-ccacc5b6ce95")
+	)
+	(wire
+		(pts
+			(xy 93.98 142.24) (xy 93.98 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b3ca3603-38d1-4282-9417-aa747eeb1182")
 	)
 	(wire
 		(pts
@@ -5729,16 +5456,6 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 182.88) (xy 80.01 182.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bb134356-34f6-4d63-a8e1-a5a4c8bf18bf")
-	)
-	(wire
-		(pts
 			(xy 93.98 153.67) (xy 129.54 153.67)
 		)
 		(stroke
@@ -5759,36 +5476,6 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 142.24) (xy 77.47 154.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c231e8c9-0dd8-4a22-a54e-03a42d70bc81")
-	)
-	(wire
-		(pts
-			(xy 78.74 118.11) (xy 78.74 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c2d85bfd-2185-46fa-92f8-5da38cbc8f9e")
-	)
-	(wire
-		(pts
-			(xy 90.17 128.27) (xy 93.98 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c34fce4a-f6fc-4137-9d20-d7fc47b6cbaf")
-	)
-	(wire
-		(pts
 			(xy 133.35 157.48) (xy 148.59 157.48)
 		)
 		(stroke
@@ -5799,16 +5486,6 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 113.03) (xy 77.47 125.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c8a446e0-2f5f-4406-aa6f-8710799edebb")
-	)
-	(wire
-		(pts
 			(xy 177.8 87.63) (xy 203.2 87.63)
 		)
 		(stroke
@@ -5816,16 +5493,6 @@
 			(type default)
 		)
 		(uuid "cb48a4ff-8768-4381-9271-053d071c2a50")
-	)
-	(wire
-		(pts
-			(xy 77.47 154.94) (xy 77.47 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ceabf0b4-567c-4fcd-95d3-3b2979955901")
 	)
 	(wire
 		(pts
@@ -5849,6 +5516,16 @@
 	)
 	(wire
 		(pts
+			(xy 77.47 143.51) (xy 77.47 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d0872a30-6f20-4058-aa8a-0ae65a7a0cf5")
+	)
+	(wire
+		(pts
 			(xy 223.52 152.4) (xy 223.52 154.94)
 		)
 		(stroke
@@ -5859,13 +5536,23 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 115.57) (xy 90.17 128.27)
+			(xy 78.74 177.8) (xy 88.9 177.8)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "db7d4d6a-8c20-41bd-83a7-9f3ae7ac251c")
+		(uuid "d70909b3-1f17-4a3a-8e26-003328ac45bc")
+	)
+	(wire
+		(pts
+			(xy 78.74 153.67) (xy 88.9 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "da66d686-8ff1-433e-8391-c59ae639e93e")
 	)
 	(wire
 		(pts
@@ -5879,13 +5566,33 @@
 	)
 	(wire
 		(pts
-			(xy 72.39 187.96) (xy 78.74 187.96)
+			(xy 78.74 148.59) (xy 88.9 148.59)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e3d73657-c384-4dc6-b5dc-1e6784f34e39")
+		(uuid "df5412cb-f902-4b31-bb1d-c5ee63096bf9")
+	)
+	(wire
+		(pts
+			(xy 78.74 182.88) (xy 88.9 182.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e78dbf67-d948-45c1-9f91-dbe271de7c57")
+	)
+	(wire
+		(pts
+			(xy 80.01 118.11) (xy 90.17 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e790ba4a-c376-41aa-aea1-cec0f53807d6")
 	)
 	(wire
 		(pts
@@ -5899,16 +5606,6 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 125.73) (xy 80.01 125.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e9c34148-a38d-4cb7-b2bb-ffb291e2e038")
-	)
-	(wire
-		(pts
 			(xy 223.52 134.62) (xy 224.79 134.62)
 		)
 		(stroke
@@ -5919,43 +5616,23 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 125.73) (xy 77.47 142.24)
+			(xy 77.47 177.8) (xy 78.74 177.8)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ecbc69eb-b0f6-48bc-a472-0898fa356621")
+		(uuid "f6a15e3a-eb9c-4c5e-9e89-b2f95b7eac33")
 	)
 	(wire
 		(pts
-			(xy 78.74 175.26) (xy 78.74 187.96)
+			(xy 93.98 153.67) (xy 93.98 182.88)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "efb09479-4ede-4455-85c1-f93ed8af0789")
-	)
-	(wire
-		(pts
-			(xy 80.01 142.24) (xy 77.47 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f074748b-67d5-4911-b493-1b5ac8a21196")
-	)
-	(wire
-		(pts
-			(xy 78.74 187.96) (xy 80.01 187.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f21f9a88-eff9-4f94-85a9-2a0f10e29eb5")
+		(uuid "f6b8c3a7-1f2b-40f8-86c8-794551f851bc")
 	)
 	(wire
 		(pts
@@ -6098,7 +5775,7 @@
 		(uuid "11d24b49-b24b-4c6c-8777-be6c27225ba5")
 	)
 	(label "ext_G"
-		(at 72.39 160.02 180)
+		(at 72.39 153.67 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6288,7 +5965,7 @@
 		(uuid "666e4b12-29f4-4ffe-8a25-fada8d76dcc7")
 	)
 	(label "ext_R"
-		(at 72.39 130.81 180)
+		(at 72.39 123.19 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7087,6 +6764,86 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_Slide_DPDT")
+		(at 83.82 182.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0e44e420-bb9f-43fd-9da7-2a2c09f48f36")
+		(property "Reference" "SW4"
+			(at 83.82 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Slide_DPDT"
+			(at 83.82 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_THT:SW_CK_JS202011CQN_DPDT_Straight"
+			(at 97.79 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 83.82 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Slide Switch, dual pole double throw"
+			(at 83.82 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "3f7c209b-14f8-400d-ac8a-a6d43717d3e8")
+		)
+		(pin "5"
+			(uuid "573fc0cb-0cd6-4d85-a4c4-62d01721c50d")
+		)
+		(pin "6"
+			(uuid "3a75adfb-0656-48e1-b961-3deb8012f2ac")
+		)
+		(pin "1"
+			(uuid "13871b4c-d23b-457f-b172-8b2e1978f895")
+		)
+		(pin "2"
+			(uuid "00c1ba9f-ddf9-4e01-981a-8b4201c96293")
+		)
+		(pin "3"
+			(uuid "f140ba14-a5b7-4ce8-a834-045c06bfc899")
+		)
+		(instances
+			(project "vga_video_card"
+				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179"
+					(reference "SW4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 124.46 146.05 270)
 		(unit 1)
@@ -7538,86 +7295,6 @@
 				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179"
 					(reference "#FLG02")
 					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_DPDT_x2")
-		(at 85.09 128.27 180)
-		(unit 2)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "26bfd6ec-b752-48f4-85ca-edebbf6ce678")
-		(property "Reference" "SW2"
-			(at 85.09 119.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_DPDT_x2"
-			(at 85.09 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Button_Switch_THT:SW_CK_JS202011CQN_DPDT_Straight"
-			(at 85.09 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 85.09 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Switch, dual pole double throw, separate symbols"
-			(at 85.09 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "6"
-			(uuid "5ce14a9e-0a5e-4255-8db2-88b70b4e1926")
-		)
-		(pin "2"
-			(uuid "9d9a9b62-8c20-4573-b8e5-b90324f3b1b1")
-		)
-		(pin "1"
-			(uuid "934c2578-6f15-444a-8af4-96b498dae361")
-		)
-		(pin "3"
-			(uuid "47e1978a-fdb5-4a7a-8b41-f7c03fcad4c1")
-		)
-		(pin "4"
-			(uuid "8994e746-5597-443f-b6f3-212111d012c8")
-		)
-		(pin "5"
-			(uuid "3b7eecea-6b76-46c4-b9c9-5bf545d56e72")
-		)
-		(instances
-			(project ""
-				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179"
-					(reference "SW2")
-					(unit 2)
 				)
 			)
 		)
@@ -8272,88 +7949,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_DPDT_x2")
-		(at 85.09 185.42 180)
-		(unit 2)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5160ed0b-7cc9-48e1-80dc-be53921aa6bf")
-		(property "Reference" "SW4"
-			(at 85.09 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_DPDT_x2"
-			(at 85.09 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Button_Switch_THT:SW_CK_JS202011CQN_DPDT_Straight"
-			(at 85.09 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 85.09 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Switch, dual pole double throw, separate symbols"
-			(at 85.09 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "6"
-			(uuid "7a4712ca-29b6-4ea2-9f6c-1b741d338fdf")
-		)
-		(pin "2"
-			(uuid "9d9a9b62-8c20-4573-b8e5-b90324f3b1b2")
-		)
-		(pin "1"
-			(uuid "934c2578-6f15-444a-8af4-96b498dae362")
-		)
-		(pin "3"
-			(uuid "47e1978a-fdb5-4a7a-8b41-f7c03fcad4c2")
-		)
-		(pin "4"
-			(uuid "d373995a-b88d-4c3b-8f27-83ca191a3152")
-		)
-		(pin "5"
-			(uuid "3213858b-046e-453d-a9ad-a1d9a32fe4f1")
-		)
-		(instances
-			(project "vga_video_card"
-				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179"
-					(reference "SW4")
-					(unit 2)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Switch:SW_Slide_DPDT")
-		(at 110.49 114.3 0)
+		(at 85.09 118.11 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8361,8 +7958,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "60087205-ccf5-4756-b507-a627348d6d2e")
-		(property "Reference" "SW5"
-			(at 110.49 104.14 0)
+		(property "Reference" "SW2"
+			(at 85.09 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8370,15 +7967,15 @@
 			)
 		)
 		(property "Value" "SW_Slide_DPDT"
-			(at 110.49 106.68 0)
+			(at 85.09 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 124.46 109.22 0)
+		(property "Footprint" "Button_Switch_THT:SW_CK_JS202011CQN_DPDT_Straight"
+			(at 99.06 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8387,7 +7984,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 110.49 114.3 0)
+			(at 85.09 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8396,7 +7993,7 @@
 			)
 		)
 		(property "Description" "Slide Switch, dual pole double throw"
-			(at 110.49 114.3 0)
+			(at 85.09 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8425,7 +8022,7 @@
 		(instances
 			(project ""
 				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179"
-					(reference "SW5")
+					(reference "SW2")
 					(unit 1)
 				)
 			)
@@ -8494,6 +8091,86 @@
 			(project "vga_video_card"
 				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179"
 					(reference "R18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Slide_DPDT")
+		(at 83.82 148.59 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6a86f2cf-896b-4073-a80f-cfd6fbc6fe55")
+		(property "Reference" "SW3"
+			(at 83.82 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Slide_DPDT"
+			(at 83.82 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_THT:SW_CK_JS202011CQN_DPDT_Straight"
+			(at 97.79 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 83.82 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Slide Switch, dual pole double throw"
+			(at 83.82 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "3dfbeb95-fa14-4a7c-bb86-74f10361f5f4")
+		)
+		(pin "5"
+			(uuid "e734333a-c41f-4079-ba77-015c8d73bfde")
+		)
+		(pin "6"
+			(uuid "5d32b052-f33a-4ec7-bf90-7feafe2b379e")
+		)
+		(pin "1"
+			(uuid "6a944e98-c165-4532-9c3d-90152d12ece3")
+		)
+		(pin "2"
+			(uuid "637d8c3e-1465-45c8-a673-0e938ac4d849")
+		)
+		(pin "3"
+			(uuid "c9e097b6-3584-4578-930d-0f2b8042016a")
+		)
+		(instances
+			(project "vga_video_card"
+				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179"
+					(reference "SW3")
 					(unit 1)
 				)
 			)
@@ -8912,86 +8589,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_DPDT_x2")
-		(at 85.09 157.48 180)
-		(unit 2)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "79945ea2-fdc9-4b88-8569-c8e24f562d44")
-		(property "Reference" "SW3"
-			(at 85.09 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_DPDT_x2"
-			(at 85.09 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Button_Switch_THT:SW_CK_JS202011CQN_DPDT_Straight"
-			(at 85.09 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 85.09 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Switch, dual pole double throw, separate symbols"
-			(at 85.09 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "6"
-			(uuid "ddbb6e11-eec9-42d8-a86f-4b5ea15298bc")
-		)
-		(pin "2"
-			(uuid "9d9a9b62-8c20-4573-b8e5-b90324f3b1b3")
-		)
-		(pin "1"
-			(uuid "934c2578-6f15-444a-8af4-96b498dae363")
-		)
-		(pin "3"
-			(uuid "47e1978a-fdb5-4a7a-8b41-f7c03fcad4c3")
-		)
-		(pin "4"
-			(uuid "cd30552f-4c4a-40c9-a900-601809d997e5")
-		)
-		(pin "5"
-			(uuid "4b41a557-37dd-4c95-85f1-5358e6d1b63f")
-		)
-		(instances
-			(project "vga_video_card"
-				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179"
-					(reference "SW3")
-					(unit 2)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "74xx:74HC02")
 		(at 24.13 111.76 0)
 		(unit 4)
@@ -9370,86 +8967,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_DPDT_x2")
-		(at 85.09 172.72 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "93e7af35-4702-4bdf-b6cf-31e5339e6487")
-		(property "Reference" "SW4"
-			(at 85.09 163.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_DPDT_x2"
-			(at 85.09 166.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Button_Switch_THT:SW_CK_JS202011CQN_DPDT_Straight"
-			(at 85.09 172.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 85.09 172.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Switch, dual pole double throw, separate symbols"
-			(at 85.09 172.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "6"
-			(uuid "5ce14a9e-0a5e-4255-8db2-88b70b4e1927")
-		)
-		(pin "2"
-			(uuid "3daed0fc-5423-45ff-a7ac-14cfce8672cf")
-		)
-		(pin "1"
-			(uuid "75640dec-4719-4521-8eda-2bc2d7b56796")
-		)
-		(pin "3"
-			(uuid "f166c553-52b5-4b64-8017-a3a79ab5f726")
-		)
-		(pin "4"
-			(uuid "8994e746-5597-443f-b6f3-212111d012c9")
-		)
-		(pin "5"
-			(uuid "3b7eecea-6b76-46c4-b9c9-5bf545d56e73")
-		)
-		(instances
-			(project "vga_video_card"
-				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179"
-					(reference "SW4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_Potentiometer_Trim")
 		(at 133.35 132.08 180)
 		(unit 1)
@@ -9700,86 +9217,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_DPDT_x2")
-		(at 85.09 115.57 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bf9ffa00-f221-4bbb-b9e4-b434c8c6bbb2")
-		(property "Reference" "SW2"
-			(at 85.09 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_DPDT_x2"
-			(at 85.09 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Button_Switch_THT:SW_CK_JS202011CQN_DPDT_Straight"
-			(at 85.09 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 85.09 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Switch, dual pole double throw, separate symbols"
-			(at 85.09 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "6"
-			(uuid "5ce14a9e-0a5e-4255-8db2-88b70b4e1928")
-		)
-		(pin "2"
-			(uuid "9d9a9b62-8c20-4573-b8e5-b90324f3b1b4")
-		)
-		(pin "1"
-			(uuid "934c2578-6f15-444a-8af4-96b498dae364")
-		)
-		(pin "3"
-			(uuid "47e1978a-fdb5-4a7a-8b41-f7c03fcad4c4")
-		)
-		(pin "4"
-			(uuid "8994e746-5597-443f-b6f3-212111d012ca")
-		)
-		(pin "5"
-			(uuid "3b7eecea-6b76-46c4-b9c9-5bf545d56e74")
-		)
-		(instances
-			(project ""
-				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179"
-					(reference "SW2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 120.65 165.1 0)
 		(unit 1)
@@ -9906,86 +9343,6 @@
 			(project ""
 				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179"
 					(reference "#PWR0108")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_DPDT_x2")
-		(at 85.09 144.78 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d7b7e943-c858-4f32-a11e-673b193d1306")
-		(property "Reference" "SW3"
-			(at 85.09 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_DPDT_x2"
-			(at 85.09 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Button_Switch_THT:SW_CK_JS202011CQN_DPDT_Straight"
-			(at 85.09 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 85.09 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Switch, dual pole double throw, separate symbols"
-			(at 85.09 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "6"
-			(uuid "5ce14a9e-0a5e-4255-8db2-88b70b4e1929")
-		)
-		(pin "2"
-			(uuid "97ad2660-7af7-414d-983a-82cdc4631338")
-		)
-		(pin "1"
-			(uuid "546ef129-88f1-452c-a7cb-e5394dac9b47")
-		)
-		(pin "3"
-			(uuid "357e7dd5-ed6c-4d57-af8a-3cd067625817")
-		)
-		(pin "4"
-			(uuid "8994e746-5597-443f-b6f3-212111d012cb")
-		)
-		(pin "5"
-			(uuid "3b7eecea-6b76-46c4-b9c9-5bf545d56e75")
-		)
-		(instances
-			(project "vga_video_card"
-				(path "/53ebbfbe-eaa1-4706-acc1-611a99db7179"
-					(reference "SW3")
 					(unit 1)
 				)
 			)
