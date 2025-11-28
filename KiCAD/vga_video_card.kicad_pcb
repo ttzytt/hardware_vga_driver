@@ -2471,7 +2471,7 @@
 		(descr "Potentiometer, vertical, Vishay T73YP, http://www.vishay.com/docs/51016/t73.pdf")
 		(tags "Potentiometer vertical Vishay T73YP")
 		(property "Reference" "RV3"
-			(at 0.254 -4.826 0)
+			(at -2.032 -4.826 0)
 			(layer "F.SilkS")
 			(uuid "9fe9e74f-c202-48e1-8f25-9320f2bf36fc")
 			(effects
@@ -13024,7 +13024,7 @@
 		(descr "Potentiometer, vertical, Vishay T73YP, http://www.vishay.com/docs/51016/t73.pdf")
 		(tags "Potentiometer vertical Vishay T73YP")
 		(property "Reference" "RV2"
-			(at -0.06 -4.826 0)
+			(at -2.032 -4.826 0)
 			(layer "F.SilkS")
 			(uuid "9c7b933a-6a26-4c7a-8f95-d0ce0bd58e25")
 			(effects
@@ -17896,7 +17896,7 @@
 		(descr "Potentiometer, vertical, Vishay T73YP, http://www.vishay.com/docs/51016/t73.pdf")
 		(tags "Potentiometer vertical Vishay T73YP")
 		(property "Reference" "RV4"
-			(at -0.06 -4.826 0)
+			(at -2.032 -4.826 0)
 			(layer "F.SilkS")
 			(uuid "b19a4fc4-eb1d-45cf-9c0e-2795ba3dc520")
 			(effects
