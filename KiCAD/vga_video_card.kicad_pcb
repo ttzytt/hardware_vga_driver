@@ -135,7 +135,7 @@
 			(subtractmaskfromsilk no)
 			(outputformat 1)
 			(mirror no)
-			(drillshape 1)
+			(drillshape 0)
 			(scaleselection 1)
 			(outputdirectory "")
 		)
@@ -454,7 +454,7 @@
 		(descr "16-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils)")
 		(tags "THT DIP DIL PDIP 2.54mm 7.62mm 300mil")
 		(property "Reference" "U34"
-			(at 3.81 -2.33 0)
+			(at 3.81 0.762 0)
 			(layer "F.SilkS")
 			(uuid "771ff860-1c7a-4bb4-9d92-4bee6d164e5d")
 			(effects
@@ -465,7 +465,7 @@
 			)
 		)
 		(property "Value" "74AHC595"
-			(at 3.81 20.11 0)
+			(at 3.81 14.732 90)
 			(layer "F.SilkS")
 			(uuid "b0577d10-ae18-49b5-be7b-7f0f2f260133")
 			(effects
@@ -834,7 +834,7 @@
 		(descr "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=7.62mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0207 series Axial Horizontal pin pitch 7.62mm 0.25W = 1/4W length 6.3mm diameter 2.5mm")
 		(property "Reference" "R7"
-			(at 3.81 -2.37 90)
+			(at 2.54 2.286 90)
 			(layer "F.SilkS")
 			(uuid "090bd27d-48f8-4cc5-86f0-e813941a2ee7")
 			(effects
@@ -845,7 +845,7 @@
 			)
 		)
 		(property "Value" "330"
-			(at 3.81 2.37 90)
+			(at 5.842 2.37 90)
 			(layer "F.SilkS")
 			(uuid "347de5f1-44a6-44c5-b7ad-de874e41ed20")
 			(effects
@@ -1395,7 +1395,7 @@
 		(descr "8-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils)")
 		(tags "THT DIP DIL PDIP 2.54mm 7.62mm 300mil")
 		(property "Reference" "U36"
-			(at 3.81 -2.33 0)
+			(at 3.81 -2.032 0)
 			(layer "F.SilkS")
 			(uuid "0dde3768-f624-41f6-9a00-07574cc18f6d")
 			(effects
@@ -1685,7 +1685,7 @@
 		(descr "16-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils)")
 		(tags "THT DIP DIL PDIP 2.54mm 7.62mm 300mil")
 		(property "Reference" "U33"
-			(at 3.81 -2.33 0)
+			(at 3.81 1.524 90)
 			(layer "F.SilkS")
 			(uuid "9b9a53e9-1b50-4fbe-acc0-7be72174643d")
 			(effects
@@ -1696,7 +1696,7 @@
 			)
 		)
 		(property "Value" "74AHC595"
-			(at 3.81 20.11 0)
+			(at 3.81 14.986 90)
 			(layer "F.SilkS")
 			(uuid "48fba0d5-a71e-420f-90d1-b7fc0fb54044")
 			(effects
@@ -2471,7 +2471,7 @@
 		(descr "Potentiometer, vertical, Vishay T73YP, http://www.vishay.com/docs/51016/t73.pdf")
 		(tags "Potentiometer vertical Vishay T73YP")
 		(property "Reference" "RV3"
-			(at -0.06 -7.09 0)
+			(at 0.254 -4.826 0)
 			(layer "F.SilkS")
 			(uuid "9fe9e74f-c202-48e1-8f25-9320f2bf36fc")
 			(effects
@@ -13024,7 +13024,7 @@
 		(descr "Potentiometer, vertical, Vishay T73YP, http://www.vishay.com/docs/51016/t73.pdf")
 		(tags "Potentiometer vertical Vishay T73YP")
 		(property "Reference" "RV2"
-			(at -0.06 -7.09 0)
+			(at -0.06 -4.826 0)
 			(layer "F.SilkS")
 			(uuid "9c7b933a-6a26-4c7a-8f95-d0ce0bd58e25")
 			(effects
@@ -13262,7 +13262,7 @@
 			)
 		)
 		(property "Value" "330"
-			(at 3.81 2.37 90)
+			(at 6.604 -2.032 90)
 			(layer "F.SilkS")
 			(uuid "1afd4c06-3b17-45f3-aacd-3c303287020b")
 			(effects
@@ -17896,7 +17896,7 @@
 		(descr "Potentiometer, vertical, Vishay T73YP, http://www.vishay.com/docs/51016/t73.pdf")
 		(tags "Potentiometer vertical Vishay T73YP")
 		(property "Reference" "RV4"
-			(at -0.06 -7.09 0)
+			(at -0.06 -4.826 0)
 			(layer "F.SilkS")
 			(uuid "b19a4fc4-eb1d-45cf-9c0e-2795ba3dc520")
 			(effects
@@ -18869,7 +18869,7 @@
 		(descr "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=7.62mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0207 series Axial Horizontal pin pitch 7.62mm 0.25W = 1/4W length 6.3mm diameter 2.5mm")
 		(property "Reference" "R9"
-			(at 3.81 -2.37 90)
+			(at 2.54 2.286 90)
 			(layer "F.SilkS")
 			(uuid "58406fd1-e865-4d89-95de-8914e0b2d823")
 			(effects
@@ -18880,7 +18880,7 @@
 			)
 		)
 		(property "Value" "330"
-			(at 3.81 2.37 90)
+			(at 5.588 2.286 90)
 			(layer "F.SilkS")
 			(uuid "2e2a3c88-d382-431b-b844-296ed479b1b7")
 			(effects
@@ -23707,7 +23707,7 @@
 			)
 		)
 		(property "Value" "330"
-			(at 3.81 2.37 90)
+			(at 6.35 -2.286 90)
 			(layer "F.SilkS")
 			(uuid "508c3699-ae62-4c2a-bf07-8603b6a7d3b0")
 			(effects
@@ -26091,7 +26091,7 @@
 		(descr "16-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils)")
 		(tags "THT DIP DIL PDIP 2.54mm 7.62mm 300mil")
 		(property "Reference" "U32"
-			(at 3.81 -2.33 0)
+			(at 3.81 1.778 90)
 			(layer "F.SilkS")
 			(uuid "db95c314-9fb0-47bb-9064-0ba5fb5122a2")
 			(effects
@@ -26102,7 +26102,7 @@
 			)
 		)
 		(property "Value" "74AHC595"
-			(at 3.81 20.11 0)
+			(at 3.81 14.732 90)
 			(layer "F.SilkS")
 			(uuid "f8e94a73-e08b-4727-a9e7-43a18fae7251")
 			(effects
@@ -29972,42 +29972,6 @@
 		(layer "Edge.Cuts")
 		(uuid "da39d333-d3a3-4332-91b3-8eab685da3f4")
 	)
-	(gr_text "330"
-		(at 107.315 167.386 90)
-		(layer "F.SilkS")
-		(uuid "5030462d-ec91-47f3-a195-df401882c531")
-		(effects
-			(font
-				(size 0.8 0.8)
-				(thickness 0.1)
-			)
-			(justify left bottom)
-		)
-	)
-	(gr_text "330"
-		(at 112.268 177.673 90)
-		(layer "F.SilkS")
-		(uuid "5fa574c7-cc46-4b0f-8fdc-6eb4dd1e819a")
-		(effects
-			(font
-				(size 0.8 0.8)
-				(thickness 0.1)
-			)
-			(justify left bottom)
-		)
-	)
-	(gr_text "330"
-		(at 107.315 177.673 90)
-		(layer "F.SilkS")
-		(uuid "849661d6-c9f2-4a41-b213-7b76d407b732")
-		(effects
-			(font
-				(size 0.8 0.8)
-				(thickness 0.1)
-			)
-			(justify left bottom)
-		)
-	)
 	(gr_text "VGA Video Card v0.1\nauthor: Yitong Zhao"
 		(at 144.145 196.215 90)
 		(layer "F.SilkS")
@@ -30027,18 +29991,6 @@
 		(effects
 			(font
 				(size 1 1)
-				(thickness 0.1)
-			)
-			(justify left bottom)
-		)
-	)
-	(gr_text "330"
-		(at 112.141 167.259 90)
-		(layer "F.SilkS")
-		(uuid "e89d4805-9924-4fef-8eb9-e2fdaf9bfb40")
-		(effects
-			(font
-				(size 0.8 0.8)
 				(thickness 0.1)
 			)
 			(justify left bottom)
