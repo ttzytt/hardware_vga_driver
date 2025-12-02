@@ -1,23 +1,37 @@
 use defmt::warn;
-use esp_hal::{self as hal, gpio, peripherals::Peripherals};
-use hal::gpio::{AnyPin, Io, Level, Output, OutputConfig, OutputPin};
+use esp_hal::{self as hal, gpio};
+use hal::gpio::{AnyPin, Level, Output, OutputConfig};
 
-/// Pin configuration for SNx4HC595 Shift Register
-pub struct PinCfg<'a> {
-    pub srclr_al: Option<AnyPin<'a>>, // Shift Register Clear (active low)
-    pub rclk:     Option<AnyPin<'a>>, // Register Clock (latch)
-    pub srclk:    AnyPin<'a>,         // Shift Register Clock
-    pub ser:      AnyPin<'a>,         // Serial Data Input
+/// Common output configuration for 74HC595-style shift registers.
+///
+/// - Open-drain with pull-up is useful when level-shifting from 3.3 V to a higher rail.
+/// - You can adjust this if your hardware uses different wiring.
+fn shiftreg_output_cfg() -> OutputConfig {
+    OutputConfig::default()
+        .with_drive_mode(gpio::DriveMode::OpenDrain)
+        .with_pull(gpio::Pull::Up)
 }
 
-/* ------------------------- Control-plane: shared lines ------------------------- */
+/* ============================== CONTROL PLANE ============================== */
 
-/// Shared latch line (RCLK). Emits a single latch pulse.
+/// Latch line (RCLK).
+///
+/// A single pulse on this line latches the contents of the internal shift
+/// register to the output register of all chained 74HC595 devices.
 pub struct LatchLine<'a> {
     rclk: Output<'a>,
 }
+
 impl<'a> LatchLine<'a> {
-    pub fn new(rclk: Output<'a>) -> Self { Self { rclk } }
+    /// Create a latch line driver from a pin.
+    pub fn from_pin(rclk: AnyPin<'a>) -> Self {
+        let cfg = shiftreg_output_cfg();
+        Self {
+            rclk: Output::new(rclk, Level::Low, cfg),
+        }
+    }
+
+    /// Emit a single latch pulse: low -> high -> low.
     #[inline]
     pub fn pulse(&mut self) {
         self.rclk.set_high();
@@ -25,14 +39,28 @@ impl<'a> LatchLine<'a> {
     }
 }
 
-/// Shared clear line (SRCLR). For 74HC595, the line is active-low.
+/// Clear line (SRCLR).
+///
+/// For 74HC595, this line is active-low: pulling it low clears the shift
+/// register contents.
 pub struct ClearLine<'a> {
     srclr: Output<'a>,
     active_low: bool,
 }
+
 impl<'a> ClearLine<'a> {
-    /// `active_low = true` for 74HC595's \SRCLR.
-    pub fn new(srclr: Output<'a>, active_low: bool) -> Self { Self { srclr, active_low } }
+    /// Create a clear line driver from a pin.
+    ///
+    /// `active_low` should be `true` for 74HC595's \SRCLR.
+    pub fn from_pin(srclr: AnyPin<'a>, active_low: bool) -> Self {
+        let cfg = shiftreg_output_cfg();
+        Self {
+            srclr: Output::new(srclr, Level::High, cfg),
+            active_low,
+        }
+    }
+
+    /// Emit a single clear pulse according to the configured polarity.
     #[inline]
     pub fn pulse(&mut self) {
         if self.active_low {
@@ -45,209 +73,221 @@ impl<'a> ClearLine<'a> {
     }
 }
 
-/// Mandatory shared-control group: has both a shared RCLK and a shared SRCLR.
-pub struct LatchGroup<'a> {
-    pub latch: LatchLine<'a>,
-    pub clear: ClearLine<'a>,
-}
-impl<'a> LatchGroup<'a> {
-    pub fn new(latch: LatchLine<'a>, clear: ClearLine<'a>) -> Self { Self { latch, clear } }
-
-    /// Perform all shifts inside `do_shifts` and then emit one shared latch pulse.
-    pub fn shift_then_latch<F>(&mut self, do_shifts: F)
-    where
-        F: FnOnce(),
-    {
-        do_shifts();
-        self.latch.pulse();
-    }
-
-    pub fn latch_all(&mut self) { self.latch.pulse(); }
-
-    /// Emit one shared clear pulse for the whole group.
-    #[inline] pub fn clear_all(&mut self) { self.clear.pulse(); }
+/// Shared shift clock line (SRCLK).
+///
+/// Every tick on this line shifts the entire daisy chain of 74HC595 devices
+/// by one bit.
+pub struct ShiftClockLine<'a> {
+    srclk: Output<'a>,
 }
 
-/* --------------------------- Data-plane: SIPO chain --------------------------- */
+impl<'a> ShiftClockLine<'a> {
+    /// Create a shift clock line driver from a pin.
+    pub fn from_pin(srclk: AnyPin<'a>) -> Self {
+        let cfg = shiftreg_output_cfg();
+        Self {
+            srclk: Output::new(srclk, Level::Low, cfg),
+        }
+    }
 
-/// SIPO chain with const-generic width (N bytes = 8*N bits).
-/// N = 1 for a single 74HC595; N = 2 for two chips daisy-chained (1 -> 16), etc.
-pub struct Sipo<'a, const N: usize> {
-    // Optional internal control lines: if None, expect an external shared control.
-    srclr_al_out: Option<Output<'a>>,
-    rclk_out:     Option<Output<'a>>,
-    // Always-owned per-device shift clock and data.
-    srclk_out:    Output<'a>,
-    ser_out:      Output<'a>,
+    /// Emit a single shift clock: low -> high -> low.
+    #[inline]
+    pub fn tick(&mut self) {
+        self.srclk.set_high();
+        self.srclk.set_low();
+    }
 }
 
-impl<'a, const N: usize> Sipo<'a, N> {
-    /// Create a SIPO. If you plan to use shared control lines, pass PinCfg with rclk/srclr_al = None
-    /// or call `.with_external_control()` afterward.
-    pub fn new(pin_cfg: PinCfg<'a>) -> Self {
-        // This is for voltage level conversion from 3.3V to 4V
-        let cfg = OutputConfig::default()
-            .with_drive_mode(gpio::DriveMode::OpenDrain)
-            .with_pull(gpio::Pull::Up);
+/// Pin configuration for a control group (SRCLK, optional RCLK, optional SRCLR).
+///
+/// This can represent either a shared control bus for multiple lanes,
+/// or a private control bundle for a single lane.
+pub struct ControlPinCfg<'a> {
+    /// Shift clock (SRCLK), required.
+    pub srclk: AnyPin<'a>,
+    /// Latch clock (RCLK), optional.
+    pub rclk: Option<AnyPin<'a>>,
+    /// Clear line (\SRCLR), optional, usually active-low.
+    pub srclr_al: Option<AnyPin<'a>>,
+}
 
-        let mut s = Self {
-            srclr_al_out: pin_cfg.srclr_al.map(|p| Output::new(p, Level::High, cfg)),
-            rclk_out:     pin_cfg.rclk.map(|p| Output::new(p, Level::Low,  cfg)),
-            srclk_out:    Output::new(pin_cfg.srclk,    Level::Low,  cfg),
-            ser_out:      Output::new(pin_cfg.ser,      Level::Low,  cfg),
-        };
-        // Initial clear if internal \SRCLR exists.
-        s.clear();
-        s
+/// Complete control group for a set of shift-register chains.
+///
+/// Whether this group is "shared" or "exclusive" depends on how many lanes
+/// you pass it to. The type itself does not enforce sharing vs exclusivity.
+pub struct ControlGroup<'a> {
+    pub shift: ShiftClockLine<'a>,
+    pub latch: Option<LatchLine<'a>>,
+    pub clear: Option<ClearLine<'a>>,
+}
+
+impl<'a> ControlGroup<'a> {
+    /// Build a control group from pins.
+    ///
+    /// `active_low` should be `true` for typical 74HC595 wiring where \SRCLR
+    /// is active-low.
+    pub fn from_cfg(pins: ControlPinCfg<'a>, active_low: bool) -> Self {
+        let shift = ShiftClockLine::from_pin(pins.srclk);
+        let latch = pins.rclk.map(LatchLine::from_pin);
+        let clear = pins.srclr_al.map(|p| ClearLine::from_pin(p, active_low));
+        Self { shift, latch, clear }
     }
 
-    /// Switch to external-control mode: detach internal RCLK/SRCLR drivers.
-    pub fn with_external_control(mut self) -> Self {
-        self.rclk_out = None;
-        self.srclr_al_out = None;
-        self
+    /// Pulse the latch line for all devices controlled by this group.
+    ///
+    /// If no latch line is configured, emit a warning and do nothing.
+    #[inline]
+    pub fn latch_all(&mut self) {
+        if let Some(l) = &mut self.latch {
+            l.pulse();
+        } else {
+            warn!(
+                "Attempted latch_all() but no RCLK configured; \
+                 configure ControlGroup.latch or call latch externally."
+            );
+        }
     }
 
-    /// Info helpers
-    #[inline] pub const fn width_bits(&self)  -> usize { 8 * N }
-    #[inline] pub const fn width_bytes(&self) -> usize { N }
+    /// Pulse the clear line for all devices controlled by this group.
+    ///
+    /// If no clear line is configured, emit a warning and do nothing.
+    #[inline]
+    pub fn clear_all(&mut self) {
+        if let Some(c) = &mut self.clear {
+            c.pulse();
+        } else {
+            warn!(
+                "Attempted clear_all() but no SRCLR configured; \
+                 tie SRCLR high or configure a ClearLine."
+            );
+        }
+    }
+}
 
-    /// Internal latch: use internal RCLK if present, else warn.
-    pub fn latch(&mut self) {
-        match &mut self.rclk_out {
-            Some(r) => {
-                assert!(r.is_set_low());
-                r.set_high();
-                r.set_low();
+/* =============================== DATA PLANE =============================== */
+
+/// Single SIPO lane: owns only a SER (serial data) output pin.
+///
+/// This type does **not** know anything about clocks or latches.
+/// It is intentionally minimal so that the same lane abstraction can be
+/// used both in a single-chain setup and in a shared-clock multi-lane setup.
+pub struct SipoLane<'a> {
+    ser_out: Output<'a>,
+}
+
+impl<'a> SipoLane<'a> {
+    /// Create a SIPO data lane from a pin.
+    pub fn from_pin(ser: AnyPin<'a>) -> Self {
+        let cfg = shiftreg_output_cfg();
+        Self {
+            ser_out: Output::new(ser, Level::Low, cfg),
+        }
+    }
+
+    /// Drive the SER line to the given bit value.
+    #[inline]
+    pub fn set_bit(&mut self, bit: bool) {
+        if bit {
+            self.ser_out.set_high();
+        } else {
+            self.ser_out.set_low();
+        }
+    }
+}
+
+
+/* ======================= PARALLEL BANK (SHARED SRCLK) ======================= */
+
+/// A parallel bank of SIPO lanes sharing a single control group.
+///
+/// - `LANES` is the number of independent chains (lanes).
+/// - `N` is the number of bytes per lane (e.g., N=2 for two 74HC595 devices).
+///
+/// All lanes are shifted in lockstep using the shared `ControlGroup`:
+/// - `ctrl.shift` provides the SRCLK ticks.
+/// - `ctrl.latch` (optional) provides a shared latch (RCLK).
+/// - `ctrl.clear` (optional) provides a shared clear (SRCLR).
+pub struct ParallelBank<'a, const LANES: usize, const N: usize> {
+    pub lanes: [SipoLane<'a>; LANES],
+    pub ctrl:  ControlGroup<'a>,
+}
+
+impl<'a, const LANES: usize, const N: usize> ParallelBank<'a, LANES, N> {
+    /// Create a new parallel bank from an array of lanes and a control group.
+    ///
+    /// The `ControlGroup` is owned by this bank. If you need to share the same
+    /// control lines across multiple banks, you will need to wrap it in some
+    /// form of shared ownership (e.g., interior mutability) at a higher layer.
+    pub fn new(lanes: [SipoLane<'a>; LANES], ctrl: ControlGroup<'a>) -> Self {
+        Self { lanes, ctrl }
+    }
+    pub fn shift_exact(&mut self, frames: [[u8; N]; LANES]) {
+        let total_bit = 8 * N;
+        for bit_idx in 0..total_bit {
+            let byte_idx = bit_idx / 8;
+            let bit_in_byte = 7 - (bit_idx % 8);
+            for lane_idx in 0..LANES {
+                let byte = frames[lane_idx][byte_idx];
+                let bit = ((byte >> bit_in_byte) & 0x01) != 0;
+                self.lanes[lane_idx].set_bit(bit);
             }
-            None => warn!("Attempted internal latch but no RCLK configured; use an external LatchLine."),
+            self.ctrl.shift.tick();
         }
     }
 
-    /// Internal clear: use internal \SRCLR if present, else warn.
-    pub fn clear(&mut self) {
-        match &mut self.srclr_al_out {
-            Some(c) => {
-                assert!(c.is_set_high());
-                c.set_low();
-                c.set_high();
-            }
-            None => warn!("Attempted internal SRCLR but no SRCLR configured; use an external ClearLine."),
-        }
+    /// Shift one full frame per lane and then latch once via the control group.
+    ///
+    /// - Uses the bank's `ctrl.shift` as the shared SRCLK.
+    /// - Uses `ctrl.latch` if available; otherwise emits a warning.
+    pub fn write_exact(&mut self, frames: [[u8; N]; LANES]) {
+        self.shift_exact(frames);
+        self.ctrl.latch_all();
     }
 
-    /// Latch via an external shared latch line (from LatchGroup).
-    #[inline] pub fn latch_via(&mut self, ext: &mut LatchLine<'a>) { ext.pulse(); }
+    /// Clear all outputs via the control group, if a clear line is configured.
+    pub fn clear_all(&mut self) {
+        self.ctrl.clear_all();
+    }
+}
 
-    /// Clear via an external shared clear line (from LatchGroup).
-    #[inline] pub fn clear_via(&mut self, ext: &mut ClearLine<'a>) { ext.pulse(); }
 
-    /// Shift one byte MSB-first into the chain. For N>1, this sends only 1/N of a full frame.
-    pub fn shift_byte(&mut self, byte: u8) {
-        for i in 0..8 {
-            let bit = (byte >> (7 - i)) & 0x01;
-            if bit == 1 { self.ser_out.set_high(); } else { self.ser_out.set_low(); }
-            self.srclk_out.set_high();
-            self.srclk_out.set_low();
-        }
+/* =========================== SINGLE-CHAIN WRAPPER =========================== */
+
+pub struct SipoSingle<'a, const N: usize> {
+    lane: SipoLane<'a>,
+    ctrl: ControlGroup<'a>,
+}
+
+impl<'a, const N: usize> SipoSingle<'a, N> {
+    pub fn new(lane: SipoLane<'a>, ctrl: ControlGroup<'a>) -> Self {
+        Self { lane, ctrl }
     }
 
-    /// Shift a sequence (MSB-first per byte), no latch.
-    pub fn shift_byte_seq(&mut self, bytes: &[u8]) {
-        for &b in bytes { self.shift_byte(b); }
-    }
 
-    /// Shift exactly N bytes (full chain width), no latch.
-    /// Convention: far-end first, near-end last.
+    /// Shift one full frame (N bytes) without latching.
+    ///
+    /// The caller may later call `self.ctrl.latch_all()` if it wants to latch
+    /// separately. For convenience, `write_exact` does both.
     pub fn shift_exact(&mut self, frame: &[u8; N]) {
-        self.shift_byte_seq(frame);
+        // For a single lane, we treat it as LANES = 1.
+        for bit in 0..(8 * N) {
+            let byte_idx = bit / 8;
+            let bit_in_byte = 7 - (bit % 8);
+            let byte = frame[byte_idx];
+            let bit_val = ((byte >> bit_in_byte) & 0x01) != 0;
+            self.lane.set_bit(bit_val);
+            self.ctrl.shift.tick();
+        }
     }
 
-    /// Write one byte then latch (partial update for N>1).
-    pub fn write_byte(&mut self, byte: u8) {
-        self.shift_byte(byte);
-        self.latch();
-    }
-
-    /// Write a sequence then latch (length may be anything).
-    pub fn write_byte_seq(&mut self, bytes: &[u8]) {
-        self.shift_byte_seq(bytes);
-        self.latch();
-    }
-
-    /// Write exactly one full frame (N bytes) then latch (simultaneous output update).
+    /// Shift one full frame and then latch once.
     pub fn write_exact(&mut self, frame: &[u8; N]) {
         self.shift_exact(frame);
-        self.latch();
+        self.ctrl.latch_all();
     }
 
-    /// External-control variant: shift full frame (N bytes) *without* latching.
-    pub fn write_exact_external(&mut self, frame: &[u8; N]) {
-        self.shift_exact(frame);
-        // no internal latch; caller should use LatchGroup::pulse_latch()
+    /// Clear the chain using the control group's clear line, if present.
+    pub fn clear(&mut self) {
+        self.ctrl.clear_all();
     }
-}
-
-/* ----------------------------- Capability trait ------------------------------ */
-
-/// Minimal shift-register capability with compile-time byte width.
-pub trait ShiftDevN<const N: usize> {
-    fn shift_bytes(&mut self, bytes: &[u8]);      // no latch
-    fn shift_exact(&mut self, frame: &[u8; N]);   // no latch
-    fn latch(&mut self);                          // latch outputs
-    fn clear(&mut self);                          // clear shift-register contents
-}
-
-impl<'a, const N: usize> ShiftDevN<N> for Sipo<'a, N> {
-    #[inline] fn shift_exact(&mut self, frame: &[u8; N]) { Sipo::shift_exact(self, frame) }
-    #[inline] fn latch(&mut self) { Sipo::latch(self) }
-    #[inline] fn clear(&mut self) { Sipo::clear(self) }
-    #[inline] fn shift_bytes(&mut self, bytes: &[u8]) { Sipo::shift_byte_seq(self, bytes) }
-}
-
-/* --------------------- Parallel composition (same width) --------------------- */
-
-/// A parallel bank of ShiftDevN devices (e.g., multiple SIPO chains),
-/// all lanes have the same width N. This bank does NOT own shared lines:
-/// - Use `*_internal()` when each lane owns its RCLK/SRCLR.
-/// - Use `*_via()` with a LatchGroup to pulse shared lines once for multiple banks.
-pub struct ParallelBank<D, const LANES: usize, const N: usize>
-where
-    D: ShiftDevN<N>,
-{
-    lanes: [D; LANES],
-}
-
-impl<D, const LANES: usize, const N: usize> ParallelBank<D, LANES, N>
-where
-    D: ShiftDevN<N>,
-{
-    pub fn new(lanes: [D; LANES]) -> Self { Self { lanes } }
-
-    /// Shift exactly one full frame per lane (far-end first), no latch.
-    pub fn shift_exact_per_lane(&mut self, frames: [[u8; N]; LANES]) {
-        for (lane, frame) in self.lanes.iter_mut().zip(frames) {
-            lane.shift_exact(&frame);
-        }
-    }
-
-    /// Internal mode: latch each lane individually (for non-shared wiring).
-    pub fn latch_all_internal(&mut self) {
-        for lane in &mut self.lanes { lane.latch(); }
-    }
-
-    /// Internal mode: clear each lane individually.
-    pub fn clear_all_internal(&mut self) {
-        for lane in &mut self.lanes { lane.clear(); }
-    }
-
-    /// External mode: use a shared LatchGroup (one pulse for all banks).
-    #[inline] pub fn latch_all_via<'a>(&mut self, g: &mut LatchGroup<'a>) { g.latch.pulse(); }
-
-    /// External mode: use a shared ClearLine (one pulse for all banks).
-    #[inline] pub fn clear_all_via<'a>(&mut self, g: &mut LatchGroup<'a>) { g.clear.pulse(); }
-
-    pub fn lane_mut(&mut self, idx: usize) -> Option<&mut D> { self.lanes.get_mut(idx) }
-
-    pub fn into_inner(self) -> [D; LANES] { self.lanes }
 }
