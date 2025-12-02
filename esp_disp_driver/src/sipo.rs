@@ -31,6 +31,12 @@ impl<'a> LatchLine<'a> {
         }
     }
 
+    pub fn from_pin_w_cfg(rclk: AnyPin<'a>, cfg: OutputConfig) -> Self {
+        Self {
+            rclk: Output::new(rclk, Level::Low, cfg),
+        }
+    }
+
     /// Emit a single latch pulse: low -> high -> low.
     #[inline]
     pub fn pulse(&mut self) {
@@ -54,6 +60,13 @@ impl<'a> ClearLine<'a> {
     /// `active_low` should be `true` for 74HC595's \SRCLR.
     pub fn from_pin(srclr: AnyPin<'a>, active_low: bool) -> Self {
         let cfg = shiftreg_output_cfg();
+        Self {
+            srclr: Output::new(srclr, Level::High, cfg),
+            active_low,
+        }
+    }
+
+    pub fn from_pin_w_cfg(srclr: AnyPin<'a>, active_low: bool, cfg: OutputConfig) -> Self {
         Self {
             srclr: Output::new(srclr, Level::High, cfg),
             active_low,
@@ -254,8 +267,8 @@ impl<'a, const LANES: usize, const N: usize> ParallelBank<'a, LANES, N> {
 /* =========================== SINGLE-CHAIN WRAPPER =========================== */
 
 pub struct SipoSingle<'a, const N: usize> {
-    lane: SipoLane<'a>,
-    ctrl: ControlGroup<'a>,
+    pub lane: SipoLane<'a>,
+    pub ctrl: ControlGroup<'a>,
 }
 
 impl<'a, const N: usize> SipoSingle<'a, N> {
