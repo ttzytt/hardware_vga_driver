@@ -9,7 +9,6 @@ use hal::gpio::{AnyPin, Level, Output, OutputConfig};
 fn shiftreg_output_cfg() -> OutputConfig {
     OutputConfig::default()
         .with_drive_mode(gpio::DriveMode::OpenDrain)
-        .with_pull(gpio::Pull::Up)
 }
 
 /* ============================== CONTROL PLANE ============================== */
@@ -60,15 +59,17 @@ impl<'a> ClearLine<'a> {
     /// `active_low` should be `true` for 74HC595's \SRCLR.
     pub fn from_pin(srclr: AnyPin<'a>, active_low: bool) -> Self {
         let cfg = shiftreg_output_cfg();
+        let init_level = if active_low { Level::High } else { Level::Low };
         Self {
-            srclr: Output::new(srclr, Level::High, cfg),
+            srclr: Output::new(srclr, init_level, cfg),
             active_low,
         }
     }
 
     pub fn from_pin_w_cfg(srclr: AnyPin<'a>, active_low: bool, cfg: OutputConfig) -> Self {
+        let init_level = if active_low { Level::High } else { Level::Low };
         Self {
-            srclr: Output::new(srclr, Level::High, cfg),
+            srclr: Output::new(srclr, init_level, cfg),
             active_low,
         }
     }
@@ -118,10 +119,11 @@ impl<'a> ShiftClockLine<'a> {
 pub struct ControlPinCfg<'a> {
     /// Shift clock (SRCLK), required.
     pub srclk: AnyPin<'a>,
-    /// Latch clock (RCLK), optional.
+    /// Latch clock (RCLK), optional because it can be chained with srclk
     pub rclk: Option<AnyPin<'a>>,
     /// Clear line (\SRCLR), optional, usually active-low.
-    pub srclr_al: Option<AnyPin<'a>>,
+    pub srclr: Option<AnyPin<'a>>,
+    pub clr_active_low: bool,
 }
 
 /// Complete control group for a set of shift-register chains.
@@ -139,10 +141,10 @@ impl<'a> ControlGroup<'a> {
     ///
     /// `active_low` should be `true` for typical 74HC595 wiring where \SRCLR
     /// is active-low.
-    pub fn from_cfg(pins: ControlPinCfg<'a>, active_low: bool) -> Self {
+    pub fn from_cfg(pins: ControlPinCfg<'a>) -> Self {
         let shift = ShiftClockLine::from_pin(pins.srclk);
         let latch = pins.rclk.map(LatchLine::from_pin);
-        let clear = pins.srclr_al.map(|p| ClearLine::from_pin(p, active_low));
+        let clear = pins.srclr.map(|p| ClearLine::from_pin(p, pins.clr_active_low));
         Self { shift, latch, clear }
     }
 
@@ -184,14 +186,20 @@ impl<'a> ControlGroup<'a> {
 /// This type does **not** know anything about clocks or latches.
 /// It is intentionally minimal so that the same lane abstraction can be
 /// used both in a single-chain setup and in a shared-clock multi-lane setup.
-pub struct SipoLane<'a> {
+pub struct SerLane<'a> {
     ser_out: Output<'a>,
 }
 
-impl<'a> SipoLane<'a> {
+impl<'a> SerLane<'a> {
     /// Create a SIPO data lane from a pin.
     pub fn from_pin(ser: AnyPin<'a>) -> Self {
         let cfg = shiftreg_output_cfg();
+        Self {
+            ser_out: Output::new(ser, Level::Low, cfg),
+        }
+    }
+
+    pub fn from_pin_w_cfg(ser: AnyPin<'a>, cfg: OutputConfig) -> Self {
         Self {
             ser_out: Output::new(ser, Level::Low, cfg),
         }
@@ -221,7 +229,7 @@ impl<'a> SipoLane<'a> {
 /// - `ctrl.latch` (optional) provides a shared latch (RCLK).
 /// - `ctrl.clear` (optional) provides a shared clear (SRCLR).
 pub struct ParallelBank<'a, const LANES: usize, const N: usize> {
-    pub lanes: [SipoLane<'a>; LANES],
+    pub lanes: [SerLane<'a>; LANES],
     pub ctrl:  ControlGroup<'a>,
 }
 
@@ -231,7 +239,7 @@ impl<'a, const LANES: usize, const N: usize> ParallelBank<'a, LANES, N> {
     /// The `ControlGroup` is owned by this bank. If you need to share the same
     /// control lines across multiple banks, you will need to wrap it in some
     /// form of shared ownership (e.g., interior mutability) at a higher layer.
-    pub fn new(lanes: [SipoLane<'a>; LANES], ctrl: ControlGroup<'a>) -> Self {
+    pub fn new(lanes: [SerLane<'a>; LANES], ctrl: ControlGroup<'a>) -> Self {
         Self { lanes, ctrl }
     }
     pub fn shift_exact(&mut self, frames: [[u8; N]; LANES]) {
@@ -267,12 +275,12 @@ impl<'a, const LANES: usize, const N: usize> ParallelBank<'a, LANES, N> {
 /* =========================== SINGLE-CHAIN WRAPPER =========================== */
 
 pub struct SipoSingle<'a, const N: usize> {
-    pub lane: SipoLane<'a>,
+    pub lane: SerLane<'a>,
     pub ctrl: ControlGroup<'a>,
 }
 
 impl<'a, const N: usize> SipoSingle<'a, N> {
-    pub fn new(lane: SipoLane<'a>, ctrl: ControlGroup<'a>) -> Self {
+    pub fn new(lane: SerLane<'a>, ctrl: ControlGroup<'a>) -> Self {
         Self { lane, ctrl }
     }
 

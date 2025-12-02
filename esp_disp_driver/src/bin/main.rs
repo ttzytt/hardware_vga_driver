@@ -16,7 +16,7 @@ use esp_hal::gpio::OutputConfig;
 use esp_radio::ble::controller::BleConnector;
 use panic_rtt_target as _;
 use trouble_host::prelude::*;
-use esp_disp_driver::{sipo, demo};
+use esp_disp_driver::sipo;
 extern crate alloc;
 
 const CONNECTIONS_MAX: usize = 1;
@@ -49,7 +49,7 @@ async fn main(spawner: Spawner) -> ! {
         esp_radio::wifi::new(&radio_init, peripherals.WIFI, Default::default())
             .expect("Failed to initialize Wi-Fi controller");
     // find more examples https://github.com/embassy-rs/trouble/tree/main/examples/esp32
-    let transport = BleConnector::new(&radio_init, &mut peripherals.BT, Default::default()).unwrap();
+    let transport = BleConnector::new(&radio_init, peripherals.BT, Default::default()).unwrap();
     let ble_controller = ExternalController::<_, 20>::new(transport);
     let mut resources: HostResources<DefaultPacketPool, CONNECTIONS_MAX, L2CAP_CHANNELS_MAX> =
         HostResources::new();
@@ -58,12 +58,8 @@ async fn main(spawner: Spawner) -> ! {
     // TODO: Spawn some tasks
     let _ = spawner;
 
-    let mut bw_writer = demo::pure_color::construct_bw_pixel_writer_def_pinout(peripherals);
-
     loop {
-        for b in 0u8..255 {
-            demo::pure_color::display_pure_color(b, &mut bw_writer);
-        }
+
     }
 
     // for inspiration have a look at the examples at https://github.com/esp-rs/esp-hal/tree/esp-hal-v1.0.0/examples/src/bin
