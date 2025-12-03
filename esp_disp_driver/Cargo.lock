@@ -986,6 +986,7 @@ dependencies = [
  "esp-hal",
  "esp-radio",
  "esp-rtos",
+ "num-traits",
  "panic-rtt-target",
  "rtt-target",
  "smoltcp",
