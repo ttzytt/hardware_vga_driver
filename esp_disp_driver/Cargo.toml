@@ -9,6 +9,10 @@ name = "esp_disp_driver"
 path = "./src/bin/main.rs"
 test = false
 
+[[bin]]
+name = "pure_color_demo"
+path = "./src/bin/pure_color_demo.rs"
+
 [[test]]
 harness = false
 name    = "hello_test"
