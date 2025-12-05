@@ -9,6 +9,7 @@ use hal::gpio::{AnyPin, Level, Output, OutputConfig};
 fn shiftreg_output_cfg() -> OutputConfig {
     OutputConfig::default()
         .with_drive_mode(gpio::DriveMode::OpenDrain)
+        .with_pull(gpio::Pull::None)
 }
 
 /* ============================== CONTROL PLANE ============================== */

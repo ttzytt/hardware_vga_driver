@@ -50,9 +50,9 @@ impl BwPixelWriter8h8v1ch8<'_> {
 impl<'a> PixelWriter<u8, u8> for BwPixelWriter8h8v1ch8<'a> {
     fn write_pixel(&mut self, i: u8, j: u8, color: u8) {
         let frame = [
-            [i],    // H address
-            [j],    // V address
-            [color] // BW channel
+            [color], // BW channel
+            [i],    // V address
+            [j],    // H address
         ];
         self.p_sipo_bank.write_exact(frame);
     }

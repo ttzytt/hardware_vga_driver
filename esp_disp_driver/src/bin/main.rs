@@ -59,7 +59,8 @@ async fn main(spawner: Spawner) -> ! {
     let _ = spawner;
 
     loop {
-
+        info!("Hello, world!");
+        Timer::after(Duration::from_secs(5)).await;
     }
 
     // for inspiration have a look at the examples at https://github.com/esp-rs/esp-hal/tree/esp-hal-v1.0.0/examples/src/bin

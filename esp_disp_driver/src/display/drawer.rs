@@ -38,8 +38,8 @@ Drawer<'a, AddrT, ColorT, PW> where
         height: AddrT,
         color: ColorT,
     ) {
-        let i_end = i_start + width - AddrT::one();
-        let j_end = j_start + height - AddrT::one();
+        let i_end = i_start + height - AddrT::one();
+        let j_end = j_start + width - AddrT::one();
         for i in i_start..=i_end {
             for j in j_start..=j_end {
                 self.pixel_writer.write_pixel(i, j, color);

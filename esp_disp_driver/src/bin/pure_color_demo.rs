@@ -41,7 +41,7 @@ async fn main(spawner: Spawner) -> ! {
 
 
     let vga_res = pix_writer::VgaResources{
-        rclk : peripherals.GPIO20.into(),
+        rclk : peripherals.GPIO35.into(),
         srclk : peripherals.GPIO21.into(),
         srclr_al : peripherals.GPIO47.into(),
         data_ser : peripherals.GPIO48.into(),
@@ -53,15 +53,35 @@ async fn main(spawner: Spawner) -> ! {
     let mut drawer = drawer::Drawer::new(&mut pixel_writer);
 
     let mut cur_brightness = 0;
-    loop {
-        drawer.fill_screen(cur_brightness);
-        cur_brightness += 1;
-        if cur_brightness == 255 {
-            cur_brightness = 0;
-        }
-        Timer::after(Duration::from_millis(100)).await;
 
+    drawer.fill_screen(0);
+    Timer::after(Duration::from_millis(1000)).await;
+    // drawer.draw_rectangle(0, 0, 1, 200, 255);
+    
+    // drawer.draw_rectangle(0, 0, 150, 1, 255);
+    let mut j_addr = 0;
+    loop{
+        drawer.write_pixel(150, j_addr, 255);
+        Timer::after(Duration::from_millis(500)).await;
+        drawer.write_pixel(150, j_addr, 0);
+        j_addr += 5;
+        if j_addr >= 200{
+            j_addr = 0;
+        }
+        Timer::after(Duration::from_millis(500)).await;
+        println!("Drew pixel at (150, {})", j_addr);
     }
+    // loop {
+    //     info!("Filling screen with brightness {}", cur_brightness);
+    //     drawer.fill_screen(cur_brightness);
+    //     // drawer.draw_rectangle(0, 0, 20, 20, cur_brightness);
+    //     cur_brightness += 5;
+    //     if cur_brightness == 255 {
+    //         cur_brightness = 0;
+    //     }
+    //     Timer::after(Duration::from_millis(50)).await;
+
+    // }
 
     // for inspiration have a look at the examples at https://github.com/esp-rs/esp-hal/tree/esp-hal-v1.0.0/examples/src/bin
 }
