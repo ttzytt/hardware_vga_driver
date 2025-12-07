@@ -16,3 +16,13 @@ impl PrimInt for i32 {}
 impl PrimInt for i64 {}
 impl PrimInt for i128 {}
 
+#[macro_export]
+macro_rules! anypins_from_peri {
+    ($perip:expr; $($n:literal),+ $(,)?) => {{
+        [
+            $(
+                paste::paste! { $perip.[<GPIO $n>].into() }
+            ),+
+        ]
+    }};
+}

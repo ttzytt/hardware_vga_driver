@@ -6,8 +6,8 @@
 //!
 //! You can sample the current logic levels and return them as `u8`, `u16`, or `u32`.
 
-use esp_hal::{self as hal, gpio::{InputConfig}};
-use hal::gpio::{AnyPin, Input};
+use esp_hal::{self as hal, gpio::{InputConfig, OutputConfig, Level}};
+use hal::gpio::{AnyPin, Input, Output};
 
 /// Parallel data reader over a group of GPIO input pins.
 ///
@@ -141,5 +141,129 @@ impl<'a, const N: usize> ParDataReader<'a, N> {
     /// Get a reference to the underlying input pins, e.g., for manual access.
     pub fn pins(&self) -> &[Input<'a>; N] {
         &self.pins
+    }
+}
+
+
+/* =============================== WRITER =============================== */
+
+/// Parallel data writer over a group of GPIO output pins.
+///
+/// The generic parameter `N` is the number of pins (bus width).
+///
+/// Bit mapping (mirrors `ParDataReader`):
+/// - `pins[0]`   ← bit 0 (LSB)
+/// - `pins[N-1]` ← bit N-1 (MSB)
+pub struct ParDataWriter<'a, const N: usize> {
+    /// Underlying output pins.
+    ///
+    /// Each element is an `Output<'a>` wrapped around an `AnyPin<'a>`.
+    pins: [Output<'a>; N],
+}
+
+impl<'a, const N: usize> ParDataWriter<'a, N> {
+    /// Construct a new parallel data writer from an array of GPIO pins.
+    ///
+    /// Each pin is configured as an output with the given configuration and
+    /// initial logic level.
+    ///
+    /// # Parameters
+    ///
+    /// - `pins`: array of `AnyPin<'a>`; the index determines the bit position
+    ///   in the value to be written:
+    ///   - bit 0   → `pins[0]` (LSB),
+    ///   - bit N-1 → `pins[N-1]` (MSB).
+    /// - `output_cfg`: output configuration (drive mode, pull, etc.).
+    /// - `initial_level`: initial level for all pins.
+    pub fn from_pins(
+        pins: [AnyPin<'a>; N],
+        output_cfg: OutputConfig,
+        initial_level: Level,
+    ) -> Self {
+        let pins: [Output<'a>; N] =
+            pins.map(|p: AnyPin<'a>| Output::new(p, initial_level, output_cfg));
+        Self { pins }
+    }
+
+    /// Set a single bit line to the given value.
+    ///
+    /// - `idx` is the bit index (0-based), i.e., selects `pins[idx]`.
+    pub fn set_bit(&mut self, idx: usize, bit: bool) {
+        if idx >= N {
+            return;
+        }
+        if bit {
+            self.pins[idx].set_high();
+        } else {
+            self.pins[idx].set_low();
+        }
+    }
+
+    /// Drive all pins from a boolean array.
+    ///
+    /// - `bits[0]`   → `pins[0]` (LSB),
+    /// - `bits[N-1]` → `pins[N-1]` (MSB).
+    pub fn write_bits(&mut self, bits: &[bool; N]) {
+        let mut i: usize = 0;
+        while i < N {
+            self.set_bit(i, bits[i]);
+            i += 1;
+        }
+    }
+
+    /// Drive the bus from a `u8` value.
+    ///
+    /// Mapping:
+    /// - bit 0   → `pins[0]`  (LSB)
+    /// - bit N-1 → `pins[N-1]` (MSB)
+    ///
+    /// # Panics
+    ///
+    /// Panics if `N > 8`, since higher bits would be inaccessible.
+    pub fn write_u8(&mut self, value: u8) {
+        let mut i: usize = 0;
+        while i < N {
+            let bit = ((value >> i) & 0x01) != 0;
+            self.set_bit(i, bit);
+            i += 1;
+        }
+    }
+
+    /// Drive the bus from a `u16` value.
+    ///
+    /// # Panics
+    ///
+    /// Panics if `N > 16`, since higher bits would be inaccessible.
+    pub fn write_u16(&mut self, value: u16) {
+
+        let mut i: usize = 0;
+        while i < N {
+            let bit = ((value >> i) & 0x0001) != 0;
+            self.set_bit(i, bit);
+            i += 1;
+        }
+    }
+
+    /// Drive the bus from a `u32` value.
+    ///
+    /// For `N > 32`, bits beyond 31 are ignored.
+    pub fn write_u32(&mut self, value: u32) {
+        let mut i: usize = 0;
+        while i < N && i < 32 {
+            let bit = ((value >> i) & 0x0000_0001) != 0;
+            self.set_bit(i, bit);
+            i += 1;
+        }
+    }
+
+    /// Convenience alias: write the bus from a `u32` value.
+    #[inline]
+    pub fn write(&mut self, value: u32) {
+        self.write_u32(value);
+    }
+
+    /// Get a mutable reference to the underlying output pins, e.g., for manual access.
+    pub fn pins_mut(&mut self) -> &mut [Output<'a>; N] {
+        &mut self.pins
     }
 }

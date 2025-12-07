@@ -13,6 +13,7 @@ use esp_hal::timer::timg::TimerGroup;
 use panic_rtt_target as _;
 use esp_disp_driver::sipo;
 use esp_disp_driver::display::{drawer, pix_writer};
+use esp_disp_driver::display::backend::sipo::*;
 use embassy_time::{Duration, Timer};
 extern crate alloc;
 
@@ -40,7 +41,7 @@ async fn main(spawner: Spawner) -> ! {
     let _ = spawner;
 
 
-    let vga_res = pix_writer::VgaResources{
+    let vga_res = VgaHwResources{
         rclk : peripherals.GPIO35.into(),
         srclk : peripherals.GPIO21.into(),
         srclr_al : peripherals.GPIO47.into(),
@@ -49,7 +50,7 @@ async fn main(spawner: Spawner) -> ! {
         j_addr_ser : peripherals.GPIO0.into(),
     };
 
-    let mut pixel_writer = pix_writer::BwPixelWriter8h8v1ch8::from_resources(vga_res);
+    let mut pixel_writer = BwPixelWriter8h8v1ch8::from_resources(vga_res);
     let mut drawer = drawer::Drawer::new(&mut pixel_writer);
 
     let mut cur_brightness = 0;

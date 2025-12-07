@@ -13,6 +13,10 @@ test = false
 name = "pure_color_demo"
 path = "./src/bin/pure_color_demo.rs"
 
+[[bin]]
+name = "bus_dac_demo"
+path = "./src/bin/bus_dac_demo.rs"
+
 [[test]]
 harness = false
 name    = "hello_test"
@@ -21,7 +25,7 @@ name    = "hello_test"
 test = false
 
 [dependencies]
-esp-hal = { version = "1.0.0", features = ["defmt", "esp32s3", "unstable"] }
+esp-hal = { version = "1.0.0", features = ["defmt", "esp32s3", "unstable", "rt"] }
 
 esp-rtos = { version = "0.2.0", features = [
   "defmt",
@@ -78,6 +82,7 @@ trouble-host = { version = "0.5.0", features = ["gatt"] }
 critical-section = "1.2.0"
 static_cell      = "2.1.1"
 num-traits = {version = "0.2.19", default-features = false}
+paste = "1.0.15"
 
 [dev-dependencies]
 embedded-test = { version = "0.7.0", features = [
@@ -98,5 +103,5 @@ debug            = 2
 debug-assertions = false
 incremental      = false
 lto              = 'fat'
-opt-level        = 's'
+opt-level        = 3
 overflow-checks  = false

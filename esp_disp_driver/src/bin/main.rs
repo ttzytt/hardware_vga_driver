@@ -54,7 +54,7 @@ async fn main(spawner: Spawner) -> ! {
     let mut resources: HostResources<DefaultPacketPool, CONNECTIONS_MAX, L2CAP_CHANNELS_MAX> =
         HostResources::new();
     let _stack = trouble_host::new(ble_controller, &mut resources);
-
+    
     // TODO: Spawn some tasks
     let _ = spawner;
 
