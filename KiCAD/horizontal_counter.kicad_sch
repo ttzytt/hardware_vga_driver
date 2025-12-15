@@ -3401,16 +3401,6 @@
 		)
 		(uuid "44afd1e1-34cc-44d0-bce6-ebec8bb804ca")
 	)
-	(text "TODO: fix bit numbers"
-		(exclude_from_sim no)
-		(at 72.39 117.602 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "59257ef5-12a3-4978-a65c-937fd312f7fe")
-	)
 	(text "TODO: PE should be disabled"
 		(exclude_from_sim no)
 		(at 25.4 29.718 0)
@@ -3423,7 +3413,7 @@
 	)
 	(text "bin(210)='0b11010010'"
 		(exclude_from_sim no)
-		(at 120.65 122.682 0)
+		(at 71.374 118.11 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4805,7 +4795,7 @@
 		)
 		(uuid "022bb3de-a704-453c-9373-5d771b15bf30")
 	)
-	(label "bit_5"
+	(label "bit_4"
 		(at 78.74 132.08 180)
 		(effects
 			(font
@@ -4875,7 +4865,7 @@
 		)
 		(uuid "15c340b7-18b3-4386-b6c0-76c6f1e80f4c")
 	)
-	(label "bit_8"
+	(label "bit_7"
 		(at 78.74 139.7 180)
 		(effects
 			(font
@@ -4915,7 +4905,7 @@
 		)
 		(uuid "1ba1aa57-080f-460f-930a-56128e57c3a1")
 	)
-	(label "bit_7"
+	(label "bit_6"
 		(at 78.74 137.16 180)
 		(effects
 			(font
@@ -4975,7 +4965,7 @@
 		)
 		(uuid "3451a77f-aee7-4851-bc5f-be7bf39a8620")
 	)
-	(label "bit_8"
+	(label "bit_7"
 		(at 78.74 115.57 180)
 		(effects
 			(font
@@ -5565,7 +5555,7 @@
 		)
 		(uuid "e61c60f1-48e6-4fad-b54a-ca3190e954c3")
 	)
-	(label "~{bit_6}"
+	(label "~{bit_5}"
 		(at 78.74 134.62 180)
 		(effects
 			(font
@@ -5635,7 +5625,7 @@
 		)
 		(uuid "fe0c8182-a0d8-49d5-8db7-a852ae3f8e53")
 	)
-	(label "bit_7"
+	(label "bit_6"
 		(at 78.74 113.03 180)
 		(effects
 			(font
