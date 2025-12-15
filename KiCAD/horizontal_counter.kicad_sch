@@ -3401,6 +3401,46 @@
 		)
 		(uuid "44afd1e1-34cc-44d0-bce6-ebec8bb804ca")
 	)
+	(text "TODO: fix bit numbers"
+		(exclude_from_sim no)
+		(at 72.39 117.602 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "59257ef5-12a3-4978-a65c-937fd312f7fe")
+	)
+	(text "TODO: PE should be disabled"
+		(exclude_from_sim no)
+		(at 25.4 29.718 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "5ffb64d3-8507-4313-b298-77b0e5103dbf")
+	)
+	(text "bin(210)='0b11010010'"
+		(exclude_from_sim no)
+		(at 120.65 122.682 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9955e51e-2a89-4a68-b21e-a063a8b4f43b")
+	)
+	(text "bin(200)='0b11001000'"
+		(exclude_from_sim no)
+		(at 72.136 91.948 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b044536c-7c39-45f5-9c81-2cb4c5ac95b4")
+	)
 	(junction
 		(at 74.93 52.07)
 		(diameter 0)

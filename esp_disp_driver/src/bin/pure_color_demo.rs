@@ -28,7 +28,7 @@ async fn main(spawner: Spawner) -> ! {
     rtt_target::rtt_init_defmt!();
 
     let config = esp_hal::Config::default().with_cpu_clock(CpuClock::max());
-    let mut peripherals = esp_hal::init(config);
+    let peripherals = esp_hal::init(config);
 
     esp_alloc::heap_allocator!(#[esp_hal::ram(reclaimed)] size: 73744);
     // COEX needs more RAM - so we've added some more
@@ -50,6 +50,15 @@ async fn main(spawner: Spawner) -> ! {
         j_addr_ser : peripherals.GPIO0.into(),
     };
 
+    // let vga_res = VgaHwResources{
+    //     rclk : peripherals.GPIO20.into(),
+    //     srclk : peripherals.GPIO21.into(),
+    //     srclr_al : peripherals.GPIO47.into(),
+    //     data_ser : peripherals.GPIO48.into(),
+    //     i_addr_ser : peripherals.GPIO45.into(),
+    //     j_addr_ser : peripherals.GPIO0.into(),
+    // };
+
     let mut pixel_writer = BwPixelWriter8h8v1ch8::from_resources(vga_res);
     let mut drawer = drawer::Drawer::new(&mut pixel_writer);
 
@@ -63,14 +72,14 @@ async fn main(spawner: Spawner) -> ! {
     let mut j_addr = 0;
     loop{
         drawer.write_pixel(150, j_addr, 255);
-        Timer::after(Duration::from_millis(500)).await;
+        Timer::after(Duration::from_millis(1000)).await;
         drawer.write_pixel(150, j_addr, 0);
         j_addr += 5;
         if j_addr >= 200{
             j_addr = 0;
         }
-        Timer::after(Duration::from_millis(500)).await;
-        println!("Drew pixel at (150, {})", j_addr);
+        Timer::after(Duration::from_millis(1000)).await;
+        println!("Flipped pixel at (150, {})", j_addr);
     }
     // loop {
     //     info!("Filling screen with brightness {}", cur_brightness);
@@ -81,7 +90,6 @@ async fn main(spawner: Spawner) -> ! {
     //         cur_brightness = 0;
     //     }
     //     Timer::after(Duration::from_millis(50)).await;
-
     // }
 
     // for inspiration have a look at the examples at https://github.com/esp-rs/esp-hal/tree/esp-hal-v1.0.0/examples/src/bin

@@ -1400,6 +1400,16 @@
 		)
 		(uuid "6df18ca6-7c13-490a-9404-49f37c9d1a4a")
 	)
+	(text "TODO: change orientation in PCB\n"
+		(exclude_from_sim no)
+		(at 179.578 62.23 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ecd23ea3-6b9d-4f8e-a322-d15081a732d9")
+	)
 	(junction
 		(at 53.34 151.13)
 		(diameter 0)

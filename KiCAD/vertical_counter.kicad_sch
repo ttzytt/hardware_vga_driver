@@ -3581,6 +3581,16 @@
 		)
 		(uuid "0de8034b-60be-4588-9584-50641f32caad")
 	)
+	(text "TODO: PE should be disabled"
+		(exclude_from_sim no)
+		(at 29.464 28.956 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "351e4405-e70f-4d97-8311-466fa0d437b4")
+	)
 	(text "bin(601)->'0b1001011001'"
 		(exclude_from_sim no)
 		(at 98.806 159.766 0)
