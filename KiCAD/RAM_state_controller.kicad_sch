@@ -613,6 +613,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "TODO: swap rbit_0 and wbit_0"
+		(exclude_from_sim no)
+		(at 44.45 91.694 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a3d1cc13-afd5-4908-8e92-0a6afcfd2954")
+	)
 	(junction
 		(at 76.2 67.31)
 		(diameter 0)

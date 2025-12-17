@@ -1150,6 +1150,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "TODO: MSB is missing\n"
+		(exclude_from_sim no)
+		(at 95.25 110.236 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "76f456f6-d972-44ba-a0e9-1f738a75be9f")
+	)
 	(junction
 		(at 182.88 93.98)
 		(diameter 0)
