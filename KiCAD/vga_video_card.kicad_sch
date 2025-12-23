@@ -8531,19 +8531,21 @@
 		(fields_autoplaced yes)
 		(uuid "78016a22-8958-4141-b2e5-f0f07e39c5b6")
 		(property "Reference" "R1"
-			(at 53.34 83.82 90)
+			(at 62.23 82.5499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "1k"
-			(at 55.88 83.82 90)
+		(property "Value" "1K"
+			(at 62.23 85.0899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"

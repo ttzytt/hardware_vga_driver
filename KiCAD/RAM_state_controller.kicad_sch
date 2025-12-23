@@ -613,16 +613,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "TODO: swap rbit_0 and wbit_0"
-		(exclude_from_sim no)
-		(at 44.45 91.694 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "a3d1cc13-afd5-4908-8e92-0a6afcfd2954")
-	)
 	(junction
 		(at 76.2 67.31)
 		(diameter 0)
@@ -801,28 +791,6 @@
 		)
 		(uuid "35895817-0a94-4d66-a756-3a4655b3c690")
 	)
-	(hierarchical_label "wbit_0"
-		(shape input)
-		(at 58.42 87.63 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "3938f7ad-1d1a-4052-b704-d0c09f4d0224")
-	)
-	(hierarchical_label "rbit_0"
-		(shape input)
-		(at 58.42 85.09 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "42b962af-b887-4479-a610-bbb7c5461838")
-	)
 	(hierarchical_label "RAM0_~{CE}"
 		(shape output)
 		(at 101.6 49.53 0)
@@ -833,6 +801,28 @@
 			(justify left)
 		)
 		(uuid "733ad972-a281-4cd0-8a51-f9be6723e16f")
+	)
+	(hierarchical_label "wbit_0"
+		(shape input)
+		(at 58.42 85.09 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7bd725e4-ffb5-4360-ace5-09f94f67d00d")
+	)
+	(hierarchical_label "rbit_0"
+		(shape input)
+		(at 58.42 87.63 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "9126d997-6131-49e9-a637-df87169ad07f")
 	)
 	(hierarchical_label "RAM1_~{WE}"
 		(shape output)
