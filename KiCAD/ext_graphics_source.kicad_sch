@@ -3588,7 +3588,7 @@
 		)
 		(uuid "44ebf756-33bb-4671-9d30-10e888070c1e")
 	)
-	(hierarchical_label "await_upd"
+	(hierarchical_label "can_upd"
 		(shape input)
 		(at 215.9 58.42 0)
 		(effects
